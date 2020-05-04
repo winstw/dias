@@ -6,9 +6,9 @@
 <style type="text/css">
 .underline { text-decoration: underline; }
 </style>
-<link rel="stylesheet" href="/home/geof/formation/presentations/reveal.js/css/reveal.css"/>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
 
-<link rel="stylesheet" href="/home/geof/formation/presentations/reveal.js/css/theme/moon.css" id="theme"/>
+<link rel="stylesheet" href="./reveal.js/css/theme/moon.css" id="theme"/>
 
 <link rel="stylesheet" href="./dias.css"/>
 
@@ -18,7 +18,7 @@
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = '/home/geof/formation/presentations/reveal.js/css/print/pdf.css';
+        link.href = './reveal.js/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
     }
 </script>
@@ -26,19 +26,19 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">Logique de programmation</h1><p class="date">Created: 2020-05-04 lun 22:56</p>
+<section id="sec-title-slide"><h1 class="title">Logique de programmation</h1><p class="date">Created: 2020-05-05 mar 10:00</p>
 </section>
 
 <section>
-<section id="slide-orgda13f15">
-<h2 id="orgda13f15"><span class="section-number-2">1</span> ALGORITHMIQUE ET PROGRAMMATION</h2>
+<section id="slide-orgbc5ca48">
+<h2 id="orgbc5ca48"><span class="section-number-2">1</span> ALGORITHMIQUE ET PROGRAMMATION</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-orgb192862">
-<h3 id="orgb192862"><span class="section-number-3">1.1</span> ALGORITHMIQUE</h3>
+<section id="slide-org861904d">
+<h3 id="org861904d"><span class="section-number-3">1.1</span> ALGORITHMIQUE</h3>
 <p class="fragment">
 <b>ALGORITHMIQUE</b><br />
 Science des algorithmes.
@@ -64,8 +64,8 @@ Un algorithme ne doit contenir que des instructions compréhensibles par celui q
 </aside>
 
 </section>
-<section id="slide-orgbf34dae">
-<h4 id="orgbf34dae">On exécute des algorithmes (presque) tous les jours !</h4>
+<section id="slide-org0835ba3">
+<h4 id="org0835ba3">On exécute des algorithmes (presque) tous les jours !</h4>
 
 <div class="figure">
 <p><img src="dias_att/screenshot-20200424-114923.png" alt="screenshot-20200424-114923.png" class="fragment" />
@@ -73,8 +73,8 @@ Un algorithme ne doit contenir que des instructions compréhensibles par celui q
 </div>
 
 </section>
-<section id="slide-orgcc34c7f">
-<h4 id="orgcc34c7f">Exemple</h4>
+<section id="slide-org84651d0">
+<h4 id="org84651d0">Exemple</h4>
 <p>
 Extrait d’un dialogue entre un touriste égaré et un autochtone :
 </p>
@@ -89,7 +89,7 @@ Extrait d’un dialogue entre un touriste égaré et un autochtone :
 </p>
 
 </section>
-<section id="slide-orgcc34c7f-split">
+<section id="slide-org84651d0-split">
 <p>
 La réponse de l’autochtone est la <b>description d’une suite ordonnée d’instructions</b> : « allez tout droit, prenez à gauche, prenez la troisième à droite ».
 </p>
@@ -104,8 +104,8 @@ Elles sont <b>compréhensibles</b> par des humains.
 </p>
 
 </section>
-<section id="slide-org8bc538a">
-<h4 id="org8bc538a">Critères de qualité</h4>
+<section id="slide-org6ea2242">
+<h4 id="org6ea2242">Critères de qualité</h4>
 <p>
 VALIDITE
 <br />
@@ -130,8 +130,8 @@ ELEGANCE
 
 
 </section>
-<section id="slide-org08e11c5">
-<h5 id="org08e11c5">Validité</h5>
+<section id="slide-org805f485">
+<h5 id="org805f485">Validité</h5>
 <p>
 La validité d’un algorithme est son aptitude à <b>réaliser exactement la tâche</b> pour laquelle il a été
 conçu.
@@ -148,8 +148,8 @@ l’ordre anoncé ?</i>
 
 
 </section>
-<section id="slide-orgcb255c6">
-<h5 id="orgcb255c6">Robustesse</h5>
+<section id="slide-orgfca54eb">
+<h5 id="orgfca54eb">Robustesse</h5>
 <p>
 La robustesse d’un algorithme est son aptitude à <b>se protéger de conditions anormales</b>
 d’utilisation.
@@ -166,8 +166,8 @@ d’utilisation.
 
 
 </section>
-<section id="slide-orgb05b433">
-<h5 id="orgb05b433">Réutilisabilité</h5>
+<section id="slide-orga02a04e">
+<h5 id="orga02a04e">Réutilisabilité</h5>
 <p>
 La réutilisabilité d’un algorithme est son aptitude à être <b>réutilisé pour résoudre des tâches
 équivalentes</b> à celle pour laquelle il a été conçu.
@@ -189,8 +189,8 @@ mairie?</i>
 
 
 </section>
-<section id="slide-org078bfd7">
-<h5 id="org078bfd7">Complexité</h5>
+<section id="slide-org7d5ac25">
+<h5 id="org7d5ac25">Complexité</h5>
 <p>
 La complexité d’un algorithme est le <b>nombre d’instructions élémentaires</b> à exécuter pour réaliser
 la tâche pour laquelle il a été conçu.
@@ -205,8 +205,8 @@ peut se compter en nombre de pas pour arriver à la gare.</i>
 </p>
 
 </section>
-<section id="slide-org7c50b3a">
-<h5 id="org7c50b3a">Efficacité</h5>
+<section id="slide-orgc3e1df5">
+<h5 id="orgc3e1df5">Efficacité</h5>
 <p>
 L’efficacité d’un algorithme est son aptitude à utiliser de <b>manière optimale</b> les ressources du
 matériel qui l’exécute.
@@ -220,15 +220,15 @@ matériel qui l’exécute.
 </p>
 
 </section>
-<section id="slide-org3f47bed">
-<h5 id="org3f47bed">Maintenabilité</h5>
+<section id="slide-orgb1237ec">
+<h5 id="orgb1237ec">Maintenabilité</h5>
 <p>
 Capacité d'un algorithme à être <b>mis à jour, amélioré, modifié</b> facilement.
 </p>
 
 </section>
-<section id="slide-orgc8ea6a6">
-<h5 id="orgc8ea6a6">Elegance</h5>
+<section id="slide-org318b559">
+<h5 id="org318b559">Elegance</h5>
 <dl>
 <dt>KISS</dt><dd>Keep It Simple, Stupid.<br />
 <br /></dd>
@@ -248,8 +248,8 @@ La perfection est atteinte, non pas lorsqu'il n'y a plus rien à ajouter, mais l
 </section>
 </section>
 <section>
-<section id="slide-org193a39e">
-<h3 id="org193a39e"><span class="section-number-3">1.2</span> PROGRAMMATION</h3>
+<section id="slide-org52b8324">
+<h3 id="org52b8324"><span class="section-number-3">1.2</span> PROGRAMMATION</h3>
 <p>
 La programmation d’un ordinateur consiste à lui « expliquer » en détail ce qu’il doit faire, en
 sachant :
@@ -262,8 +262,8 @@ sachant :
 </ul>
 
 </section>
-<section id="slide-org1a8a8fb">
-<h4 id="org1a8a8fb">Langage de programmation</h4>
+<section id="slide-orge07a26b">
+<h4 id="orge07a26b">Langage de programmation</h4>
 <p>
 Un langage de programmation est composé d’un ensemble de <b>mots-clés</b> (choisis arbitrairement),
 de <b>règles</b> très précises indiquant comment on peut assembler ces mots pour former des «
@@ -279,15 +279,15 @@ Ils facilitent la <b>rédaction</b> et la <b>compréhension</b> d’un code sour
 </p>
 
 </section>
-<section id="slide-org49532c0">
-<h4 id="org49532c0">Traduction</h4>
+<section id="slide-org4ebe31d">
+<h4 id="org4ebe31d">Traduction</h4>
 <p>
 La traduction des textes écrits dans un langage de programmation en instructions machines est
 réalisée soit par des <b>interprètes</b>, soit par des <b>compilateurs</b>.
 </p>
 </section>
-<section id="slide-org750fa08">
-<h5 id="org750fa08">INTERPRETE</h5>
+<section id="slide-org3e572f1">
+<h5 id="org3e572f1">INTERPRETE</h5>
 <p>
 Les interprètes traduisent et exécutent les instructions les unes après les autres.<br />
 </p>
@@ -299,8 +299,8 @@ Les interprètes traduisent et exécutent les instructions les unes après les a
 </div>
 
 </section>
-<section id="slide-orgbc74d2a">
-<h5 id="orgbc74d2a">COMPILATEUR</h5>
+<section id="slide-org099b8f9">
+<h5 id="org099b8f9">COMPILATEUR</h5>
 <p>
 Les compilateurs traduisent toutes les instructions du programme en <b>langage machine</b> et
 sauvegardent cet état dans un fichier exécutable (dit "binaire").
@@ -316,8 +316,8 @@ temps à l'exécution.
 </div>
 
 </section>
-<section id="slide-org3ce48b3">
-<h5 id="org3ce48b3">HYBRIDES</h5>
+<section id="slide-org974a335">
+<h5 id="org974a335">HYBRIDES</h5>
 
 <div class="figure">
 <p><img src="data/6a/cbcf5e-47ba-40dc-851b-d876044873a4/screenshot-20200429-122135.png" alt="screenshot-20200429-122135.png" />
@@ -336,8 +336,8 @@ Mais quand on va utiliser <b>typescript</b> (ajout du typage) : compilation (plu
 </section>
 </section>
 <section>
-<section id="slide-orgeaa6a3f">
-<h2 id="orgeaa6a3f"><span class="section-number-2">2</span> MACHINE LOGIQUE</h2>
+<section id="slide-orgf83b9bb">
+<h2 id="orgf83b9bb"><span class="section-number-2">2</span> MACHINE LOGIQUE</h2>
 <p>
 Pour pouvoir apprendre à écrire des programmes, il est <b>nécessaire</b> de connaitre les
 <b>caractéristiques et les compétences des machines</b> avec lesquelles nous voulons communiquer.
@@ -346,7 +346,7 @@ logique ne reprenant que les <b>éléments nécessaires</b> à notre propos.
 </p>
 
 </section>
-<section id="slide-orgeaa6a3f-split">
+<section id="slide-orgf83b9bb-split">
 
 
 <div class="figure">
@@ -395,13 +395,13 @@ logique ne reprenant que les <b>éléments nécessaires</b> à notre propos.
 </section>
 </section>
 <section>
-<section id="slide-orge4935a7">
-<h3 id="orge4935a7"><span class="section-number-3">2.1</span> Début et fin de programme</h3>
+<section id="slide-org27ff36c">
+<h3 id="org27ff36c"><span class="section-number-3">2.1</span> Début et fin de programme</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
 </section>
-<section id="slide-orgd8bf5fd">
-<h4 id="orgd8bf5fd">Syntaxe</h4>
+<section id="slide-org9b9b5e6">
+<h4 id="org9b9b5e6">Syntaxe</h4>
 
 <div class="figure">
 <p><img src="D%C3%A9but_et_fin_de_programme/2020-04-29_13-46-23_screenshot.png" alt="2020-04-29_13-46-23_screenshot.png" />
@@ -443,8 +443,8 @@ d. Ligne 4 : Début du programme « prem » =&gt; trouvé
 </aside>
 
 </section>
-<section id="slide-orgab93821">
-<h4 id="orgab93821">Déroulement</h4>
+<section id="slide-org7e77a08">
+<h4 id="org7e77a08">Déroulement</h4>
 <p>
 Au lancement du programme la Machine Logique (ML) :
 </p>
@@ -461,8 +461,8 @@ Au lancement du programme la Machine Logique (ML) :
 </section>
 </section>
 <section>
-<section id="slide-orgacdbf2c">
-<h3 id="orgacdbf2c"><span class="section-number-3">2.2</span> Opérations et types de données</h3>
+<section id="slide-org0042ddd">
+<h3 id="org0042ddd"><span class="section-number-3">2.2</span> Opérations et types de données</h3>
 <p>
 La manière de réaliser une opération sur des données dépend du type des données.
 Certaines opérations n'ont aucun sens sur certains types de données.
@@ -524,8 +524,8 @@ Parfois en JS, ça va pêter à l'exécution. JS va souvent transformer pour cor
 
 </aside>
 </section>
-<section id="slide-org0c6bb1e">
-<h4 id="org0c6bb1e">Types et machine logique</h4>
+<section id="slide-orgb3e1e39">
+<h4 id="orgb3e1e39">Types et machine logique</h4>
 <p>
 Il en est de même pour la machine logique. Une opération sur des valeurs ne pourra être exécutée qu'en fonction du type de données de ces valeurs.
 </p>
@@ -544,8 +544,8 @@ Il sera donc nécessaire de définir:
 </section>
 </section>
 <section>
-<section id="slide-orgf891ce4">
-<h3 id="orgf891ce4"><span class="section-number-3">2.3</span> Type de données numériques</h3>
+<section id="slide-org49a11d1">
+<h3 id="org49a11d1"><span class="section-number-3">2.3</span> Type de données numériques</h3>
 <p>
 Pour la ML une donnée numérique est équivalente à un nombre réel en algèbre.
 </p>
@@ -565,8 +565,8 @@ Règles d’écriture : identiques aux règles d’écriture des nombres décima
 </p>
 
 </section>
-<section id="slide-org7ade905">
-<h4 id="org7ade905">Priorités des opérateurs</h4>
+<section id="slide-orga5aa9e1">
+<h4 id="orga5aa9e1">Priorités des opérateurs</h4>
 
 <div class="figure">
 <p><img src="Op%C3%A9rations_et_types_de_donn%C3%A9es/2020-04-29_16-00-43_screenshot.png" alt="2020-04-29_16-00-43_screenshot.png" />
@@ -576,28 +576,28 @@ Règles d’écriture : identiques aux règles d’écriture des nombres décima
 </section>
 </section>
 <section>
-<section id="slide-org2835b97">
-<h2 id="org2835b97"><span class="section-number-2">3</span> VARIABLES</h2>
+<section id="slide-orgb753258">
+<h2 id="orgb753258"><span class="section-number-2">3</span> VARIABLES</h2>
 <div class="outline-text-2" id="text-3">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-org29951ab">
-<h3 id="org29951ab"><span class="section-number-3">3.1</span> Definitions</h3>
+<section id="slide-org4648cc5">
+<h3 id="org4648cc5"><span class="section-number-3">3.1</span> Definitions</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
 </section>
-<section id="slide-org5a61f55">
-<h4 id="org5a61f55"></h4>
+<section id="slide-orgf614782">
+<h4 id="orgf614782"></h4>
 <p>
 <b>Constante littérale</b><br />
 Donnée écrite directement dans le code
 </p>
 
 </section>
-<section id="slide-orgc112af7">
-<h4 id="orgc112af7"></h4>
+<section id="slide-orgc6042ce">
+<h4 id="orgc6042ce"></h4>
 <p>
 <b>Constante symbolique</b><br />
  Nom attribué à une valeur.<br />
@@ -605,8 +605,8 @@ La valeur attribuée ne pourra pas être modifiée pendant l’exécution du pro
 </p>
 
 </section>
-<section id="slide-orgba589c9">
-<h4 id="orgba589c9"></h4>
+<section id="slide-org4a16cc9">
+<h4 id="org4a16cc9"></h4>
 <p>
 <b>Variable</b><br />
 La variable associe également un nom à une valeur, mais la valeur pourra être modifiée lors de l’exécution du programme.<br />
@@ -614,8 +614,8 @@ La valeur des variables est enregistrée dans la pile.
 </p>
 
 </section>
-<section id="slide-org09fc766">
-<h4 id="org09fc766"></h4>
+<section id="slide-orgad16e30">
+<h4 id="orgad16e30"></h4>
 <p>
 <b>Assignation</b><br />
 Opération d’attribution d’une valeur à une variable.
@@ -624,13 +624,13 @@ Opération d’attribution d’une valeur à une variable.
 </section>
 </section>
 <section>
-<section id="slide-org0229b32">
-<h3 id="org0229b32"><span class="section-number-3">3.2</span> Déclaration</h3>
+<section id="slide-org386e229">
+<h3 id="org386e229"><span class="section-number-3">3.2</span> Déclaration</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
 </section>
-<section id="slide-orgf162e06">
-<h4 id="orgf162e06">Syntaxe</h4>
+<section id="slide-org3c7650f">
+<h4 id="org3c7650f">Syntaxe</h4>
 <p>
 Bloc de déclaration:
 </p>
@@ -641,7 +641,7 @@ Bloc de déclaration:
 </div>
 
 </section>
-<section id="slide-orgf162e06-split">
+<section id="slide-org3c7650f-split">
 <p>
 Déclaration de constante
 </p>
@@ -660,16 +660,16 @@ Déclaration de variable
 </p>
 </div>
 </section>
-<section id="slide-orgce15273">
-<h4 id="orgce15273">Exemple</h4>
+<section id="slide-org8ecfc2e">
+<h4 id="org8ecfc2e">Exemple</h4>
 
 <div class="figure">
 <p><img src="D%C3%A9claration_des_variables/2020-04-29_16-39-08_screenshot.png" alt="2020-04-29_16-39-08_screenshot.png" height="300px" />
 </p>
 </div>
 </section>
-<section id="slide-org06687f6">
-<h4 id="org06687f6">Représentation</h4>
+<section id="slide-org271db89">
+<h4 id="org271db89">Représentation</h4>
 
 <div class="figure">
 <p><img src="VARIABLES/2020-04-29_16-40-07_screenshot.png" alt="2020-04-29_16-40-07_screenshot.png" />
@@ -700,8 +700,8 @@ Création des variables (ML)
 </section>
 </section>
 <section>
-<section id="slide-org474146f">
-<h3 id="org474146f"><span class="section-number-3">3.3</span> Instruction d’assignation</h3>
+<section id="slide-org6ae4dce">
+<h3 id="org6ae4dce"><span class="section-number-3">3.3</span> Instruction d’assignation</h3>
 <p>
 Une instruction d’assignation provoque la modification de la valeur d’une variable.<br />
 <br />
@@ -718,8 +718,8 @@ la fin de l’instruction</i>
 </p>
 
 </section>
-<section id="slide-org6b2d2ae">
-<h4 id="org6b2d2ae">Syntaxe :</h4>
+<section id="slide-org0a49cc4">
+<h4 id="org0a49cc4">Syntaxe :</h4>
 
 <div class="figure">
 <p><img src="VARIABLES/2020-04-30_13-56-18_screenshot.png" alt="2020-04-30_13-56-18_screenshot.png" height="80px" />
@@ -727,8 +727,8 @@ la fin de l’instruction</i>
 </div>
 
 </section>
-<section id="slide-orgb099c2b">
-<h4 id="orgb099c2b">Déroulement</h4>
+<section id="slide-org5b2fc66">
+<h4 id="org5b2fc66">Déroulement</h4>
 <p>
 Lors de l’assignation d’une expression dans une variable:
 </p>
@@ -742,8 +742,8 @@ Lors de l’assignation d’une expression dans une variable:
 </p>
 
 </section>
-<section id="slide-org75adc86">
-<h4 id="org75adc86">Représentation</h4>
+<section id="slide-org7b63949">
+<h4 id="org7b63949">Représentation</h4>
 
 <div class="figure">
 <p><img src="VARIABLES/2020-04-30_14-22-49_screenshot.png" alt="2020-04-30_14-22-49_screenshot.png" />
@@ -755,16 +755,16 @@ Lors de l’assignation d’une expression dans une variable:
 </section>
 </section>
 <section>
-<section id="slide-org5c03a4c">
-<h3 id="org5c03a4c"><span class="section-number-3">3.4</span> Evaluation des Expressions</h3>
+<section id="slide-orgc24408d">
+<h3 id="orgc24408d"><span class="section-number-3">3.4</span> Evaluation des Expressions</h3>
 <p>
 Lorsqu’une instruction contient une expression, la ML commence par évaluer l’expression avant
 d’effectuer l’instruction
 </p>
 
 </section>
-<section id="slide-org00f5423">
-<h4 id="org00f5423">Déroulement</h4>
+<section id="slide-org0237566">
+<h4 id="org0237566">Déroulement</h4>
 
 <div class="figure">
 <p><img src="VARIABLES/2020-04-30_14-21-31_screenshot.png" alt="2020-04-30_14-21-31_screenshot.png" style="float:left;" height="400px" />
@@ -795,14 +795,14 @@ d’effectuer l’instruction
 </section>
 </section>
 <section>
-<section id="slide-org7b6be32">
-<h3 id="org7b6be32"><span class="section-number-3">3.5</span> Table d'évolution</h3>
+<section id="slide-org6738242">
+<h3 id="org6738242"><span class="section-number-3">3.5</span> Table d'évolution</h3>
 <p>
 Les tables de valeurs reprennent l’état de la mémoire à la fin de
 chaque instruction
 </p>
 </section>
-<section id="slide-org7b6be32-split">
+<section id="slide-org6738242-split">
 
 
 <table border="2" cellspacing="0" cellpadding="6" rules="all" frame="hsides" class="org-table">
@@ -929,15 +929,15 @@ event.target.classList.remove('value_table_cell');
 </section>
 </section>
 <section>
-<section id="slide-orge29762d">
-<h2 id="orge29762d"><span class="section-number-2">4</span> AFFICHAGE ET SAISIE</h2>
+<section id="slide-orgb05212a">
+<h2 id="orgb05212a"><span class="section-number-2">4</span> AFFICHAGE ET SAISIE</h2>
 <div class="outline-text-2" id="text-4">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-orgc898ef6">
-<h3 id="orgc898ef6"><span class="section-number-3">4.1</span> Afficher</h3>
+<section id="slide-org7409dbc">
+<h3 id="org7409dbc"><span class="section-number-3">4.1</span> Afficher</h3>
 <p>
 L’instruction « afficher » provoque l’affichage d’une liste de valeur à l’écran.<br />
 </p>
@@ -955,8 +955,8 @@ L’instruction « afficher » provoque l’affichage d’une liste de valeur à
 
 
 </section>
-<section id="slide-org844f22b">
-<h4 id="org844f22b">Deroulement</h4>
+<section id="slide-orgb812929">
+<h4 id="orgb812929">Deroulement</h4>
 <ol>
 <li>La ML calcule le résultat de chaque expression et affiche les résultats les uns à la suite des autres.</li>
 <li class="fragment appear">Si une expression commence et se termine par le caractère guillemet (") le texte entre les guillemets est affiché tel quel à l’écran.</li>
@@ -964,8 +964,8 @@ L’instruction « afficher » provoque l’affichage d’une liste de valeur à
 </ol>
 
 </section>
-<section id="slide-orge7a5254">
-<h4 id="orge7a5254">Représentation</h4>
+<section id="slide-orgc9a959b">
+<h4 id="orgc9a959b">Représentation</h4>
 
 <div class="figure">
 <p><img src="AFFICHAGE_ET_SAISIE/2020-04-30_16-39-42_screenshot.png" alt="2020-04-30_16-39-42_screenshot.png" />
@@ -973,7 +973,7 @@ L’instruction « afficher » provoque l’affichage d’une liste de valeur à
 </div>
 
 </section>
-<section id="slide-orge7a5254-split">
+<section id="slide-orgc9a959b-split">
 
 <div class="figure">
 <p><img src="AFFICHAGE_ET_SAISIE/2020-04-30_16-40-45_screenshot.png" alt="2020-04-30_16-40-45_screenshot.png" height="60px" />
@@ -1002,8 +1002,8 @@ affichée à l'écran sera: <b>la division entière de 7 par 3 est 2</b>
 </section>
 </section>
 <section>
-<section id="slide-orgf8e0190">
-<h3 id="orgf8e0190"><span class="section-number-3">4.2</span> Saisir</h3>
+<section id="slide-org91d9769">
+<h3 id="org91d9769"><span class="section-number-3">4.2</span> Saisir</h3>
 <p>
 L'instruction "saisir" provoque : l'interruption de l'exécution du
 programme dans l'attente d'une valeur communiquée par l'utilisateur et
@@ -1011,8 +1011,8 @@ la réception et la mise en mémoire de la valeur reçue
 </p>
 
 </section>
-<section id="slide-orgc624de0">
-<h4 id="orgc624de0">Syntaxe :</h4>
+<section id="slide-org3cf57cd">
+<h4 id="org3cf57cd">Syntaxe :</h4>
 
 <div class="figure">
 <p><img src="AFFICHAGE_ET_SAISIE/2020-04-30_16-46-35_screenshot.png" alt="2020-04-30_16-46-35_screenshot.png" height="60px;" />
@@ -1032,8 +1032,8 @@ la valeur de la variable dans la mémoire de données</li>
 </ul>
 
 </section>
-<section id="slide-org04d529d">
-<h4 id="org04d529d">Représentation</h4>
+<section id="slide-org7c73955">
+<h4 id="org7c73955">Représentation</h4>
 
 <div class="figure">
 <p><img src="AFFICHAGE_ET_SAISIE/2020-04-30_16-48-24_screenshot.png" alt="2020-04-30_16-48-24_screenshot.png" />
@@ -1041,8 +1041,8 @@ la valeur de la variable dans la mémoire de données</li>
 </div>
 
 </section>
-<section id="slide-org21fca9d">
-<h4 id="org21fca9d">Affichage et la lecture dans une table de valeurs</h4>
+<section id="slide-org389372c">
+<h4 id="org389372c">Affichage et la lecture dans une table de valeurs</h4>
 
 <div class="figure">
 <p><img src="AFFICHAGE_ET_SAISIE/2020-04-30_16-49-18_screenshot.png" alt="2020-04-30_16-49-18_screenshot.png" />
@@ -1052,15 +1052,15 @@ la valeur de la variable dans la mémoire de données</li>
 </section>
 </section>
 <section>
-<section id="slide-org7e6ad91">
-<h2 id="org7e6ad91"><span class="section-number-2">5</span> TYPE DE DONNÉES BOOLÉENNES</h2>
+<section id="slide-org3a2304d">
+<h2 id="org3a2304d"><span class="section-number-2">5</span> TYPE DE DONNÉES BOOLÉENNES</h2>
 <div class="outline-text-2" id="text-5">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-org960f473">
-<h3 id="org960f473"><span class="section-number-3">5.1</span> Valeurs booléennes</h3>
+<section id="slide-org23f1712">
+<h3 id="org23f1712"><span class="section-number-3">5.1</span> Valeurs booléennes</h3>
 <p>
 Symbole identifiant du type : <b>B</b><br />
 Règles d’écriture : <b>VRAI</b> ou <b>FAUX</b>
@@ -1069,8 +1069,8 @@ Règles d’écriture : <b>VRAI</b> ou <b>FAUX</b>
 </section>
 </section>
 <section>
-<section id="slide-orgde892a9">
-<h3 id="orgde892a9"><span class="section-number-3">5.2</span> Opérateurs booléens</h3>
+<section id="slide-orgc53374d">
+<h3 id="orgc53374d"><span class="section-number-3">5.2</span> Opérateurs booléens</h3>
 <p>
  <b>La négation (NON)</b><br />
 L'opérateur de négation donne un résultat inverse à la valeur de son opérande<br />
@@ -1085,7 +1085,7 @@ L'opérateur de négation donne un résultat inverse à la valeur de son opéran
 
 
 </section>
-<section id="slide-orgde892a9-split">
+<section id="slide-orgc53374d-split">
 
 <p>
 <b>La conjonction (ET)</b> <br />
@@ -1103,7 +1103,7 @@ Le résultat d'une conjonction n’est VRAI que si ses deux opérandes sont VRAI
 </div>
 
 </section>
-<section id="slide-orgde892a9-split">
+<section id="slide-orgc53374d-split">
 
 <p>
 <b>La disjonction (OU)</b><br />
@@ -1126,8 +1126,8 @@ Le résultat d'une conjonction est VRAI si au moins un de ses deux opérandes es
 
 
 </section>
-<section id="slide-org5b6ed55">
-<h4 id="org5b6ed55">Les opérateurs de comparaison</h4>
+<section id="slide-orgb83d37d">
+<h4 id="orgb83d37d">Les opérateurs de comparaison</h4>
 <p>
 Les opérateurs de comparaison ont comme résultat une valeur booléenne.<br />
 <br />
@@ -1140,7 +1140,7 @@ comparaison sont définis.</i>
 </p>
 
 </section>
-<section id="slide-org5b6ed55-split">
+<section id="slide-orgb83d37d-split">
 
 <p>
 Les comparateurs d'<b>égalité (=)</b> et de <b>différence(≠)</b> sont définis pour :
@@ -1152,7 +1152,7 @@ Les comparateurs d'<b>égalité (=)</b> et de <b>différence(≠)</b> sont défi
 </ul>
 
 </section>
-<section id="slide-org5b6ed55-split">
+<section id="slide-orgb83d37d-split">
 
 <p>
 Les comparateurs d'<b>ordre (&lt;, ≤, &gt;, ≥)</b> sont définis pour :
@@ -1163,8 +1163,8 @@ Les comparateurs d'<b>ordre (&lt;, ≤, &gt;, ≥)</b> sont définis pour :
 </ul>
 
 </section>
-<section id="slide-org518f42c">
-<h4 id="org518f42c">Priorité des opérateurs</h4>
+<section id="slide-orgd330bce">
+<h4 id="orgd330bce">Priorité des opérateurs</h4>
 
 <div class="figure">
 <p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-05-22_screenshot.png" alt="2020-05-04_12-05-22_screenshot.png" />
@@ -1174,15 +1174,15 @@ Les comparateurs d'<b>ordre (&lt;, ≤, &gt;, ≥)</b> sont définis pour :
 </section>
 </section>
 <section>
-<section id="slide-org60bc7ec">
-<h3 id="org60bc7ec"><span class="section-number-3">5.3</span> Expression booléenne</h3>
+<section id="slide-org13da863">
+<h3 id="org13da863"><span class="section-number-3">5.3</span> Expression booléenne</h3>
 <p>
 Une expression booléenne est une expression dont le résultat est une valeur booléenne<br />
 </p>
 
 </section>
-<section id="slide-org2ac254e">
-<h4 id="org2ac254e">Exemple d’évaluation d'une expression booléenne.</h4>
+<section id="slide-org356cd6f">
+<h4 id="org356cd6f">Exemple d’évaluation d'une expression booléenne.</h4>
 
 <div class="figure">
 <p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-06-59_screenshot.png" alt="2020-05-04_12-06-59_screenshot.png" />
@@ -1192,10 +1192,10 @@ Une expression booléenne est une expression dont le résultat est une valeur bo
 </section>
 </section>
 <section>
-<section id="slide-org10e74fb">
-<h3 id="org10e74fb"><span class="section-number-3">5.4</span> Syntaxe</h3>
+<section id="slide-orgcb445d6">
+<h3 id="orgcb445d6"><span class="section-number-3">5.4</span> Syntaxe</h3>
 </section>
-<section id="slide-org10e74fb-split">
+<section id="slide-orgcb445d6-split">
 <p>
 <b>Déclaration variable booléenne</b>
 </p>
@@ -1218,7 +1218,7 @@ Une expression booléenne est une expression dont le résultat est une valeur bo
 
 
 </section>
-<section id="slide-org10e74fb-split">
+<section id="slide-orgcb445d6-split">
 <p>
 <b>Assignation variable booléenne</b>
 </p>
@@ -1230,7 +1230,7 @@ Une expression booléenne est une expression dont le résultat est une valeur bo
 </div>
 
 </section>
-<section id="slide-org10e74fb-split">
+<section id="slide-orgcb445d6-split">
 <p>
 <b>Expression booléenne</b>
 </p>
@@ -1242,7 +1242,7 @@ Une expression booléenne est une expression dont le résultat est une valeur bo
 </div>
 
 </section>
-<section id="slide-org10e74fb-split">
+<section id="slide-orgcb445d6-split">
 <p>
 <b>Opération de comparaison</b>
 </p>
@@ -1276,8 +1276,8 @@ Une expression booléenne est une expression dont le résultat est une valeur bo
 </section>
 </section>
 <section>
-<section id="slide-orgdd22edf">
-<h3 id="orgdd22edf"><span class="section-number-3">5.5</span> Exemple</h3>
+<section id="slide-org65116b1">
+<h3 id="org65116b1"><span class="section-number-3">5.5</span> Exemple</h3>
 
 <div class="figure">
 <p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-09-53_screenshot.png" alt="2020-05-04_12-09-53_screenshot.png" />
@@ -1287,7 +1287,7 @@ Une expression booléenne est une expression dont le résultat est une valeur bo
 </section>
 </div>
 </div>
-<script src="/home/geof/formation/presentations/reveal.js/js/reveal.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
 
 <script>
 // Full list of configuration options available here:
@@ -1302,11 +1302,11 @@ multiplex: {
 
 // Optional libraries used to extend on reveal.js
 dependencies: [
- { src: '/home/geof/formation/presentations/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
- { src: '/home/geof/formation/presentations/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
- { src: '/home/geof/formation/presentations/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
- { src: '/home/geof/formation/presentations/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
- { src: '/home/geof/formation/presentations/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+ { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
 });
 </script>
 </body>
