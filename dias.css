@@ -1,0 +1,28 @@
+section > iframe {
+    height: 800px;
+}
+
+table.org-table td.org-right{
+    border: 0;
+}
+
+table.org-table td.org-right {
+    text-align: center;
+    border: 1px solid;
+}
+
+table.org-table td:nth-child(1) {
+    border: none;
+    white-space: pre-wrap;
+    width: 50%;
+}
+
+table.org-table {
+    font-size: 2rem;
+    border: 1px solid;
+}
+
+
+.value_table_cell {
+    font-size: 0px;
+}

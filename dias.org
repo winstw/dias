@@ -1,0 +1,837 @@
+#+Title: Logique de programmation
+
+#+REVEAL_INIT_OPTIONS: width:1200, height:800, margin: 0.1, minScale:0.2, maxScale:2.5
+
+# h = a partir de quand les headings sont "exportés différemment" ; num: numérotation des headings à l'export
+#+OPTIONS: toc:nil h:4 num:2
+
+# #+REVEAL_THEME: solarized
+#+REVEAL_HLEVEL: 2
+#+REVEAL_EXTRA_CSS: ./dias.css
+
+* ALGORITHMIQUE ET PROGRAMMATION
+
+**  ALGORITHMIQUE
+
+#+ATTR_REVEAL: :frag t
+*ALGORITHMIQUE*\\
+Science des algorithmes.
+\\
+#+ATTR_REVEAL: :frag t
+*ALGORITHME*\\
+ Suite ordonnée d'instructions qui indique la démarche à suivre pour résoudre une série de problèmes équivalents.
+\\
+#+ATTR_REVEAL: :frag t
+/Un algorithme ne doit contenir que des instructions compréhensibles par celui qui devra l'exécuter./
+
+
+
+
+#+BEGIN_NOTES
+Un algorithme ne doit contenir que des instructions compréhensibles par celui qui devra l'exécuter.
+#+END_NOTES
+
+*** On exécute des algorithmes (presque) tous les jours !
+  :PROPERTIES:
+  :ATTACH_DIR: /home/geof/formation/logique/dias_att
+  :END:
+#+ATTR_REVEAL: :frag t
+[[file:dias_att/screenshot-20200424-114923.png]]
+
+*** Exemple
+Extrait d’un dialogue entre un touriste égaré et un autochtone :
+#+ATTR_REVEAL: :frag t
+« Pourriez-vous m’indiquer le chemin de la gare, s’il vous plait ? »
+#+ATTR_REVEAL: :frag t
+« Oui bien sûr : vous allez tout droit jusqu’au prochain carrefour, vous prenez à gauche au carrefour et ensuite la troisième à droite, et vous verrez la gare juste en face de vous. »
+#+ATTR_REVEAL: :frag t
+« Merci. »
+
+ #+REVEAL: split
+La réponse de l’autochtone est la *description d’une suite ordonnée d’instructions* : « allez tout droit, prenez à gauche, prenez la troisième à droite ».
+#+ATTR_REVEAL: :frag t
+Celles-ci *manipulent des données* : « carrefour, rues »
+#+ATTR_REVEAL: :frag t
+Et permettent de *réaliser la tâche désirée* : « aller à la gare. »
+#+ATTR_REVEAL: :frag t
+Elles sont *compréhensibles* par des humains.
+
+*** Critères de qualité
+VALIDITE
+\\
+ROBUSTESSE
+\\
+REUTILISABILITE
+\\
+COMPLEXITE
+\\
+EFFICACITE
+\\
+MAINTENABILITE
+\\
+ELEGANCE
+#+BEGIN_NOTES
+
+#+END_NOTES
+
+
+**** Validité
+
+ La validité d’un algorithme est son aptitude à *réaliser exactement la tâche* pour laquelle il a été
+ conçu.
+
+
+ \\
+ #+ATTR_REVEAL: :frag t
+  /Arrive-t-on effectivement à la gare en exécutant scrupuleusement les instructions dans
+ l’ordre anoncé ?/
+
+
+**** Robustesse
+ La robustesse d’un algorithme est son aptitude à *se protéger de conditions anormales*
+ d’utilisation.
+
+
+ \\
+ #+ATTR_REVEAL: :frag t
+  /Le chemin proposé a été pensé pour un piéton, alors qu’il est possible que le « touriste égaré
+ » soit en voiture et que la « troisième à droite » soit en sens interdit./
+
+
+****  Réutilisabilité
+ La réutilisabilité d’un algorithme est son aptitude à être *réutilisé pour résoudre des tâches
+ équivalentes* à celle pour laquelle il a été conçu.
+
+ \\
+
+ #+ATTR_REVEAL: :frag t
+  /L’algorithme de recherche du chemin de la gare est-il réutilisable tel quel pour se rendre à la
+ mairie?/
+
+ #+ATTR_REVEAL: :frag t
+  /A priori non, sauf si la mairie est juste à côté de la gare./
+
+
+
+**** Complexité
+ La complexité d’un algorithme est le *nombre d’instructions élémentaires* à exécuter pour réaliser
+ la tâche pour laquelle il a été conçu.
+
+ \\
+ #+ATTR_REVEAL: :frag t
+  /Si le « touriste égaré » est un piéton, la complexité de l’algorithme de recherche de chemin
+ peut se compter en nombre de pas pour arriver à la gare./
+
+**** Efficacité
+ L’efficacité d’un algorithme est son aptitude à utiliser de *manière optimale* les ressources du
+ matériel qui l’exécute.
+
+ \\
+ #+ATTR_REVEAL: :frag t
+  /N’existerait-il pas un raccourci piétonnier pour arriver plus vite à la gare ?/
+
+**** Maintenabilité
+ Capacité d'un algorithme à être *mis à jour, amélioré, modifié* facilement.
+
+**** Elegance
+
+- KISS ::  Keep It Simple, Stupid.\\
+ \\
+
+- DRY :: Don't Repeat Yourself\\
+\\
+ #+BEGIN_QUOTE
+ La perfection est atteinte, non pas lorsqu'il n'y a plus rien à ajouter, mais lorsqu'il n'y a plus rien à retirer.
+ #+END_QUOTE
+
+** PROGRAMMATION
+ La programmation d’un ordinateur consiste à lui « expliquer » en détail ce qu’il doit faire, en
+ sachant :
+
+ + qu’il ne « comprend » pas le langage humain,
+ + qu’il peut seulement effectuer un traitement automatique sur des séquences de 0 et de 1
+
+*** Langage de programmation
+ Un langage de programmation est composé d’un ensemble de *mots-clés* (choisis arbitrairement),
+ de *règles* très précises indiquant comment on peut assembler ces mots pour former des «
+ phrases » et de *procédures de traduction* des phrases en séquence de 0 et de 1.\\
+
+ #+ATTR_REVEAL: :frag t
+ Ils permettent de faire *abstraction* des mécanismes bas niveaux de la machine. \\
+
+ #+ATTR_REVEAL: :frag t
+ Ils facilitent la *rédaction* et la *compréhension* d’un code source par un humain.
+
+*** Traduction
+ La traduction des textes écrits dans un langage de programmation en instructions machines est
+ réalisée soit par des *interprètes*, soit par des *compilateurs*.
+**** INTERPRETE
+
+ Les interprètes traduisent et exécutent les instructions les unes après les autres.\\
+
+ [[file:data/00/b83021-79d4-4bff-947e-748ed750946e/screenshot-20200429-121815.png]]
+
+**** COMPILATEUR
+
+ Les compilateurs traduisent toutes les instructions du programme en *langage machine* et
+ sauvegardent cet état dans un fichier exécutable (dit "binaire").
+ L'ordinateur exécute le code machine *sans utiliser le code source*, ce qui permet de gagner du
+ temps à l'exécution.
+
+
+ [[file:data/ba/6a703b-3209-4aa9-b9f0-d2c43b095ebd/screenshot-20200429-122050.png]]
+
+**** HYBRIDES
+ [[file:data/6a/cbcf5e-47ba-40dc-851b-d876044873a4/screenshot-20200429-122135.png]]
+
+#+BEGIN_NOTES
+ parallèle avec *javascript* : interprété, exécuté niveau machine : gros avantage \\
+ Client simple : rien à installer. Le même code va s'intérpréter suivant la machine où elle tourne.\\
+ Mais quand on va utiliser *typescript* (ajout du typage) : compilation (plutot transpilation parrce qu'on ne descend pas a plus bas niveau) va se faire entre le moment du code et de l'exécution.
+
+#+END_NOTES
+
+* MACHINE LOGIQUE
+
+Pour pouvoir apprendre à écrire des programmes, il est *nécessaire* de connaitre les
+*caractéristiques et les compétences des machines* avec lesquelles nous voulons communiquer.
+De façons à nous *concentrer sur la logique* des programmes, nous imaginons une machine
+logique ne reprenant que les *éléments nécessaires* à notre propos.
+
+#+REVEAL: split
+
+[[file:dias_att/screenshot-20200429-122323.png]]
+
+
+
+#+BEGIN_NOTES
+*MEMOIRE*\\
+
+- La mémoire de code : liste d’instructions numérotées.
+- La mémoire de données : ensemble de zones où il est possible de mémoriser des informations. Cet ensemble est organisé de deux manières différentes la pile et le tas.
+
+  - La *pile* : à chaque zone mémoire est associé un nom qui peut être utilisé dans les instructions
+
+  - Le *tas* : les zones mémoires sont accessibles via leurs adresses.
+
+*La machine logique est l’élément dynamique de notre machine*\\
+
+- Elle possède un ensemble de procédure permettant d’exécuter les instructions de notre langage logique.
+
+- Elle est capable d’effectuer des opérations simples sur les données afin de produire de nouvelles données résultats.
+
+- Elle est capable de charger une instruction dans la mémoire d’instructions.
+- Elle est capable de lire et de modifier les données de la mémoire de données.
+- Elle est capable de lire les données sur le canal d’entée (par exemple le clavier)
+- Elle est capable d’écrire des données sur le canal de sortie (par exemple l’écran )
+
+#+END_NOTES
+
+** Début et fin de programme
+
+*** Syntaxe
+
+
+ #+DOWNLOADED: screenshot @ 2020-04-29 13:46:23
+ [[file:D%C3%A9but_et_fin_de_programme/2020-04-29_13-46-23_screenshot.png]]
+
+ *Représentation*\\
+
+ #+DOWNLOADED: screenshot @ 2020-04-29 13:45:53
+ [[file:D%C3%A9but_et_fin_de_programme/2020-04-29_13-45-53_screenshot.png]]
+
+ #+BEGIN_NOTES
+ Premier programme
+
+ 1. Lancement du programme « prem »
+ 2. Mémorisation du nom du programme dans la machine logique
+ 3. Chargement du code dans la mémoire du code
+ 4. La M.L. parcourt les instructions à la recherche de l’instruction de début :
+    a. Ligne 1 : ligne de commentaire => suivante
+    b. Ligne 2 : ligne de commentaire => suivante
+    c. Ligne 3 : ligne de commentaire => suivante
+    d. Ligne 4 : Début du programme « prem » => trouvé
+    5. Chargement de la ligne suivante
+    6. Fin de programme
+
+ #+END_NOTES
+
+*** Déroulement
+ Au lancement du programme la Machine Logique (ML) :
+
+ - Mémorise le nom du programme
+ - Charge le code dans la mémoire de code
+ - Recherche une instruction « Debut » suivie du nom du programme à exécuter
+ - Exécute l’instruction ayant le numéro suivant.
+ - Arrête le programme quand il exécute l’instruction « Fin » suivie du nom du programme mémorisé
+
+** Opérations et types de données
+
+ La manière de réaliser une opération sur des données dépend du type des données.
+ Certaines opérations n'ont aucun sens sur certains types de données.
+
+ /La technique pour filtrer de l'eau est très différente de la technique pour filtrer les
+ entrées à une soirée/
+
+ /Tandis que filtrer des montagnes n'a pas de sens/
+
+
+#+BEGIN_NOTES
+ Typage sert à 3 choses :
+
+ + sert à dire si ces 0 et 1 correspondent à tel ou tel type de donnée: reprendre la séquence de bits et la tranformer en nombre ou autre
+ + vérifier les opérations (types des données d'un coté et de l'autre)
+ + besoin du type pour savoir combien de cases prendre dans sa mémoire.
+
+ Javascript va ajouter des fonctionnalités à ce système où chaque donnée est typée.\\
+ Transtypage automatique, pour qu'on ait pas à gérer les types, mais piègeux, car il utilise des règles compliquées.\\
+ Javascript est typé, même si on dit le contraire, représentation "interne" et automatique des types.\\
+
+
+ Différences entre statiquement/dynamiquement typé:
+ double avantage:
+ + performance
+ fortement type, meilleure gestion de la mémoire, plus fine, on va pouvoir réserver l'espace nécessaire à l'application, et pas un espace énorme ou variable.
+ + rigueur
+
+ Va directement empêcher opérations (à la compilation et donc durant le codage si bon outil) sur des types incompatibles. 
+
+Parfois en JS, ça va pêter à l'exécution. JS va souvent transformer pour correspondre, et donner une réponse complètement débile, inattendue => ROBUSTESSE --
+ Amène l'erreur au niveau de l'exécution, plutôt qu'au niveau du développement, où elle peut etre traitée.
+
+#+END_NOTES
+*** Types et machine logique
+
+ Il en est de même pour la machine logique. Une opération sur des valeurs ne pourra être exécutée qu'en fonction du type de données de ces valeurs.
+
+ Il sera donc nécessaire de définir:
+
+ - Les types de données connues par la machine logique
+ - Les opérations possibles sur chaque type
+ - Les syntaxes reconnues par la machine pour exprimer ces types
+
+** Type de données numériques
+
+Pour la ML une donnée numérique est équivalente à un nombre réel en algèbre.
+
+Symbole identifiant du type : *N*
+
+Règles d’écriture : identiques aux règles d’écriture des nombres décimaux en algèbre\\
+
+12 \\
+456,7 \\
+0,005
+
+*** Priorités des opérateurs
+
+#+DOWNLOADED: screenshot @ 2020-04-29 16:05:12
+[[file:Op%C3%A9rations_et_types_de_donn%C3%A9es/2020-04-29_16-00-43_screenshot.png]]
+
+* VARIABLES
+** Definitions
+*** 
+*Constante littérale*\\
+Donnée écrite directement dans le code
+
+*** 
+*Constante symbolique*\\
+ Nom attribué à une valeur.\\
+La valeur attribuée ne pourra pas être modifiée pendant l’exécution du programme
+
+*** 
+*Variable*\\
+La variable associe également un nom à une valeur, mais la valeur pourra être modifiée lors de l’exécution du programme.\\
+La valeur des variables est enregistrée dans la pile.
+
+*** 
+*Assignation*\\
+Opération d’attribution d’une valeur à une variable.
+
+** Déclaration
+*** Syntaxe
+Bloc de déclaration:
+#+ATTR_HTML: :height 200px
+[[file:D%C3%A9claration_des_variables_et_des_constantes/2020-04-29_16-34-31_screenshot.png]]
+
+#+REVEAL: split
+Déclaration de constante
+#+ATTR_HTML: :height 80px
+[[file:D%C3%A9claration_des_variables_et_des_constantes/2020-04-29_16-34-53_screenshot.png]]
+
+Déclaration de variable
+#+ATTR_HTML: :height 80px
+[[file:D%C3%A9claration_des_variables_et_des_constantes/2020-04-29_16-35-06_screenshot.png]]
+*** Exemple
+
+
+ #+ATTR_HTML: :height 300px
+ [[file:D%C3%A9claration_des_variables/2020-04-29_16-39-08_screenshot.png]]
+*** Représentation
+
+ #+DOWNLOADED: screenshot @ 2020-04-29 16:40:07
+ [[file:VARIABLES/2020-04-29_16-40-07_screenshot.png]]
+ #+BEGIN_NOTES
+  Création des variables (ML)
+ 1. Chargement du code en mémoire
+ 2. Début de programme
+ 3. Début de bloc de déclarations des variables locales
+ 4. Création une page mémoire pour le programme.
+ 5. Déclaration de la constante « AUTEUR »
+ 6. Déclaration et création de la variable « nom » de type Texte et de valeur chaine vide.
+ 7. Déclaration et création de la variable « age » de type Numérique et de valeur 25.
+ 8. Déclaration et création de la variable « travail » de type booléenne et de valeur FAUX.
+ 9. Fin de déclaration des variables locales
+ 10. Fin de programme
+ 11. Destruction de la page mémoire
+ #+END_NOTES
+
+
+** Instruction d’assignation
+Une instruction d’assignation provoque la modification de la valeur d’une variable.\\
+\\
+#+ATTR_REVEAL: :frag t
+La valeur assignée à une variable doit être de même type que la variable.\\
+\\
+
+
+#+ATTR_REVEAL: :frag t
+/Attention : la valeur se trouvant dans la variable avant l’assignation est définitivement perdue à
+la fin de l’instruction/
+
+*** Syntaxe :
+
+#+attr_html: :height 80px
+[[file:VARIABLES/2020-04-30_13-56-18_screenshot.png]]
+
+*** Déroulement
+Lors de l’assignation d’une expression dans une variable:
+#+ATTR_REVEAL: :frag (appear)
+1. L’expression est évaluée
+2. Le résultat de l’évaluation est assignée à la variable
+\\
+
+*** Représentation
+
+#+DOWNLOADED: screenshot @ 2020-04-30 14:22:49
+[[file:VARIABLES/2020-04-30_14-22-49_screenshot.png]]
+
+
+
+** Evaluation des Expressions
+Lorsqu’une instruction contient une expression, la ML commence par évaluer l’expression avant
+d’effectuer l’instruction
+
+*** Déroulement
+#+ATTR_HTML: :style float:left; :height 400px
+[[file:VARIABLES/2020-04-30_14-21-31_screenshot.png]]
+
+#+ATTR_REVEAL: :frag (appear)
+#+ATTR_HTML: :style float:right; font-size:2rem;
+1. Chaque variable est remplacée par sa valeur actuelle
+ #+ATTR_REVEAL: :frag (appear)
+    - X par 15
+    - Y par 12
+    - Z par -1
+    - X par 15
+2. Chaque opération est effectuée puis remplacée
+ #+ATTR_REVEAL: :frag (appear)
+  + 5 * 15 par 75
+  + 2 * 12 par 24
+  + 24 * -1 par -24
+  + 75 - -24 par 99
+  + 99 mod 15 par 9
+
+** Table d'évolution
+   :PROPERTIES:
+   :TABLE_EXPORT_FORMAT: orgtbl-to-html :attributes (:contenteditable t :border "2" :cellspacing "0" :cellpadding "6" :rules "groups" :frame "hsides")
+   :END:
+
+Les tables de valeurs reprennent l’état de la mémoire à la fin de
+chaque instruction
+#+REVEAL: split
+
+
+ #+ATTR_HTML: :rules all :class org-table
+ | Programme                    | N° ligne | variable a | variable b |
+ |------------------------------+----------+------------+------------|
+ | .  Debut ex1                 |        1 |          / |          / |
+ | .     variables locales      |        2 |          / |          / |
+ | .          var a :N <- 1     |        3 |          1 |          / |
+ | .          var b :N <- 2     |        4 |          1 |          2 |
+ | .      fin variables locales |        5 |          1 |          2 |
+ | .      a <- a + b            |        6 |          3 |          2 |
+ | .      b <- b + a            |        7 |          3 |          5 |
+ | .      a <- b - a            |        8 |          2 |          5 |
+ | .      b <- b + a            |        9 |          2 |          7 |
+ | .      a <- a + b            |       10 |          9 |          7 |
+ | .      a <- a – a            |       11 |          0 |          7 |
+ | .  Fin ex1                   |       12 |          0 |          7 |
+ |------------------------------+----------+------------+------------|
+
+ # | Programme                    | N° ligne | variable a | variable b |
+ # |------------------------------+----------+------------+------------|
+ # | .  Debut ex1                 |        1 |          / |          / |
+ # | .     variables locales      |        2 |          / |          / |
+ # | .          var a :N <- 1     |        3 |          1 |          / |
+ # | .          var b :N <- 2     |        4 |          1 |          2 |
+ # | .      fin variables locales |        5 |          1 |          2 |
+ # | .      b <- a + b            |        6 |          1 |          3 |
+ # | .      a <- b – a            |        7 |          2 |          3 |
+ # | .      b <- a + b            |        8 |          2 |          5 |
+ # | .      a <- b – a            |        9 |          3 |          5 |
+ # | .      b <- a + b            |       10 |          3 |          8 |
+ # | .      a <- b – a            |       11 |          5 |          8 |
+ # | .  Fin ex1                   |       12 |          5 |          8 |
+ # |------------------------------+----------+------------+------------|
+
+
+ #+begin_export html
+ <script>
+ let values = document.querySelectorAll('.org-table td:nth-child(n+3)')
+ values.forEach(tr => {
+ tr.classList.add('value_table_cell');
+ tr.addEventListener('click', (event) => {
+ console.log(event.target);
+ event.target.classList.remove('value_table_cell');
+ }
+ )
+ });
+ </script>
+ #+end_export
+
+
+* table tests                                                      :noexport:
+#+ATTR_HTML: :height 500px
+#+BEGIN_SRC js
+// | Programme                   | N° ligne | variable a | variable b |
+// |-----------------------------+----------+------------+------------|
+// | 1. Debut ex1                |        1 |            |            |
+// | 2.    variables locales     |        2 |            |            |
+// | 3.      var a :N <- 1       |        3 |            |            |
+// | 4.      var b :N <- 2       |        4 |            |            |
+// | 5.    fin variables locales |        5 |            |            |
+// | 6.    b <- a - b            |        6 |            |            |
+// | 7.    a <- b + a            |        7 |            |            |
+// | 8.    b <- a - b            |        8 |            |            |
+// | 9.    a <- b + a            |        9 |            |            |
+// | 10.    b <- a - b           |       10 |            |            |
+// | 11.    a <- b – a           |       11 |            |            |
+// | 12.  Fin ex1                |       12 |            |            |
+// |-----------------------------+----------+------------+------------|
+#+END_SRC
+
+#+REVEAL: split
+#+begin_export html
+
+<!-- #+ BEGIN RECEIVE ORGTBL valeurs -->
+<table class="org-table"  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+<colgroup>
+<col border="0" class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Programme</th>
+<th scope="col" class="org-right">N° ligne</th>
+<th scope="col" class="org-right">variable a</th>
+<th scope="col" class="org-right">variable b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">1. Debut ex1</td>
+<td class="org-right">1</td>
+<td contenteditable class="org-right">0</td>
+<td contenteditable class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">2.    variables locales</td>
+<td class="org-right">2</td>
+<td contenteditable class="org-right">&#xa0;</td>
+<td contenteditable class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">3.      var a :N &lt;- 1</td>
+<td class="org-right">3</td>
+<td contenteditable class="org-right">&#xa0;</td>
+<td contenteditable class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">4.      var b :N &lt;- 2</td>
+<td class="org-right">4</td>
+<td contenteditable class="org-right">&#xa0;</td>
+<td contenteditable class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">5.    fin variables locales</td>
+<td class="org-right">5</td>
+<td contenteditable class="org-right">&#xa0;</td>
+<td contenteditable class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">6.    b &lt;- a + b</td>
+<td class="org-right">6</td>
+<td contenteditable class="org-right">&#xa0;</td>
+<td contenteditable class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">7.    a &lt;- b – a</td>
+<td class="org-right">7</td>
+<td contenteditable class="org-right">&#xa0;</td>
+<td contenteditable class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">8.    b &lt;- a + b</td>
+<td class="org-right">8</td>
+<td contenteditable class="org-right">&#xa0;</td>
+<td contenteditable class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">9.    a &lt;- b – a</td>
+<td class="org-right">9</td>
+<td contenteditable class="org-right">&#xa0;</td>
+<td contenteditable class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">10.    b &lt;- a + b</td>
+<td class="org-right">10</td>
+<td contenteditable class="org-right">&#xa0;</td>
+<td contenteditable class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">11.    a &lt;- b – a</td>
+<td class="org-right">11</td>
+<td contenteditable class="org-right">&#xa0;</td>
+<td contenteditable class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">12.  Fin ex1</td>
+<td class="org-right">12</td>
+<td contenteditable class="org-right">&#xa0;</td>
+<td contenteditable class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+<!-- #+ END RECEIVE ORGTBL valeurs -->
+#+end_export
+
+
+# #+ORGTBL: SEND valeurs orgtbl-to-html :attributes (:contenteditable t :border "2" :cellspacing "0" :cellpadding "6" :rules "groups" :frame "hsides")
+** 
+
+* AFFICHAGE ET SAISIE
+** Afficher
+L’instruction « afficher » provoque l’affichage d’une liste de valeur à l’écran.\\
+
+*Syntaxe*\\
+
+
+#+DOWNLOADED: screenshot @ 2020-04-30 16:36:11
+#+ATTR_HTML: :height 60px
+[[file:AFFICHAGE_ET_SAISIE/2020-04-30_16-36-11_screenshot.png]]
+
+
+*** Deroulement
+
+  #+ATTR_REVEAL: :frag (none appear)
+  1. La ML calcule le résultat de chaque expression et affiche les résultats les uns à la suite des autres.
+  2. Si une expression commence et se termine par le caractère guillemet (") le texte entre les guillemets est affiché tel quel à l’écran.
+
+*** Représentation
+
+
+ #+DOWNLOADED: screenshot @ 2020-04-30 16:39:42
+ [[file:AFFICHAGE_ET_SAISIE/2020-04-30_16-39-42_screenshot.png]]
+
+ #+REVEAL: split
+ #+DOWNLOADED: screenshot @ 2020-04-30 16:40:45
+ #+ATTR_HTML: :height 60px
+ [[file:AFFICHAGE_ET_SAISIE/2020-04-30_16-40-45_screenshot.png]]
+
+ #+ATTR_REVEAL: :frag (appear)
+ #+ATTR_HTML: :style font-size:2.2rem
+ 1. Affichage de la première valeur « la division entière de »
+ 2. Remplacement de a par 7
+ 3. Affichage de la deuxième valeur « 7 »
+ 4. Affichage de la troisième valeur « par »
+ 5. Remplacement de b par 3
+ 6. Affichage de la quatrième valeur « 3 »
+ 7. Remplacement de a par 7
+ 8. Remplacement de b par 3
+ 9. Remplacement de « 7 DIV 3 » par 2
+ 10. Affichage de la cinquième valeur « 2 »
+
+ #+ATTR_REVEAL: :frag appear
+ Si au moment de l'exécution de l'instruction a=7 et b=3, la ligne
+ affichée à l'écran sera: *la division entière de 7 par 3 est 2*
+
+** Saisir
+L'instruction "saisir" provoque : l'interruption de l'exécution du
+programme dans l'attente d'une valeur communiquée par l'utilisateur et
+la réception et la mise en mémoire de la valeur reçue
+
+*** Syntaxe :
+
+ #+DOWNLOADED: screenshot @ 2020-04-30 16:46:35
+ #+ATTR_HTML: :height 60px;
+ [[file:AFFICHAGE_ET_SAISIE/2020-04-30_16-46-35_screenshot.png]]
+
+
+ *Remarques :*
+  #+ATTR_REVEAL: :frag (appear)
+ + Le type de la valeur saisie est celui de la variable
+ + La machine logique n'accepte que des valeurs de ce type
+ + Quand la machine logique reçoit une valeur du bon type, elle modifie
+   la valeur de la variable dans la mémoire de données
+
+*** Représentation
+
+
+ #+DOWNLOADED: screenshot @ 2020-04-30 16:48:24
+ [[file:AFFICHAGE_ET_SAISIE/2020-04-30_16-48-24_screenshot.png]]
+
+*** Affichage et la lecture dans une table de valeurs
+
+
+ #+DOWNLOADED: screenshot @ 2020-04-30 16:49:18
+ [[file:AFFICHAGE_ET_SAISIE/2020-04-30_16-49-18_screenshot.png]]
+
+* TYPE DE DONNÉES BOOLÉENNES
+
+** Valeurs booléennes
+Symbole identifiant du type : *B*\\
+Règles d’écriture : *VRAI* ou *FAUX*
+
+** Opérateurs booléens
+
+ *La négation (NON)*\\
+L'opérateur de négation donne un résultat inverse à la valeur de son opérande\\
+_Table de valeurs :_
+
+#+DOWNLOADED: screenshot @ 2020-04-30 16:52:25
+[[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-04-30_16-52-25_screenshot.png]]
+
+
+#+REVEAL: split
+
+*La conjonction (ET)* \\
+Le résultat d'une conjonction n’est VRAI que si ses deux opérandes sont VRAI\\
+
+_Table de valeurs :_
+
+#+DOWNLOADED: screenshot @ 2020-04-30 16:53:19
+[[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-04-30_16-53-19_screenshot.png]]
+
+#+REVEAL: split
+
+*La disjonction (OU)*\\
+
+Le résultat d'une conjonction est VRAI si au moins un de ses deux opérandes est VRAI\\
+
+_Table de valeurs :_
+
+
+#+DOWNLOADED: screenshot @ 2020-04-30 16:53:52
+[[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-04-30_16-53-52_screenshot.png]]
+
+
+*** Les opérateurs de comparaison
+Les opérateurs de comparaison ont comme résultat une valeur booléenne.\\
+\\
+Les deux opérandes d'une comparaison doivent être de même type et la comparaison doit être implémentée par le type de données.\\
+\\
+#+ATTR_REVEAL: :frag t
+/Remarque : pour chaque nouveau type, il faudra définir quels opérateurs de
+comparaison sont définis./
+
+#+REVEAL: split t
+
+Les comparateurs d'*égalité (=)* et de *différence(≠)* sont définis pour :
+- les valeurs de type *numérique*
+- les valeurs de type *booléen*
+
+#+REVEAL: split t
+
+Les comparateurs d'*ordre (<, ≤, >, ≥)* sont définis pour :
+- les valeurs de type numérique.
+
+*** Priorité des opérateurs
+
+ #+DOWNLOADED: screenshot @ 2020-05-04 12:05:22
+ [[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-05-22_screenshot.png]]
+
+** Expression booléenne
+Une expression booléenne est une expression dont le résultat est une valeur booléenne\\
+
+*** Exemple d’évaluation d'une expression booléenne.
+
+#+DOWNLOADED: screenshot @ 2020-05-04 12:06:59
+[[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-06-59_screenshot.png]]
+
+** Syntaxe
+#+REVEAL: split
+*Déclaration variable booléenne*
+
+#+DOWNLOADED: screenshot @ 2020-05-04 12:10:45
+ #+ATTR_HTML: :height 60px
+[[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-10-45_screenshot.png]]
+
+*Constante booléenne*
+
+#+DOWNLOADED: screenshot @ 2020-05-04 12:11:39
+ #+ATTR_HTML: :height 60px
+[[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-11-39_screenshot.png]]
+
+
+#+REVEAL: split
+*Assignation variable booléenne*
+
+#+DOWNLOADED: screenshot @ 2020-05-04 12:10:57
+#+ATTR_HTML: :height 60px
+[[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-10-57_screenshot.png]]
+
+#+REVEAL: split
+*Expression booléenne*
+
+#+DOWNLOADED: screenshot @ 2020-05-04 12:11:18
+[[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-11-18_screenshot.png]]
+
+#+REVEAL: split
+*Opération de comparaison*
+
+#+DOWNLOADED: screenshot @ 2020-05-04 12:12:04
+[[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-12-04_screenshot.png]]
+
+*Opérateur d’égalité*
+
+#+DOWNLOADED: screenshot @ 2020-05-04 12:12:22
+ #+ATTR_HTML: :height 60px
+[[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-12-22_screenshot.png]]
+
+*Comparateur d’ordre*
+
+#+DOWNLOADED: screenshot @ 2020-05-04 12:10:15
+ #+ATTR_HTML: :height 60px
+[[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-10-15_screenshot.png]]
+
+** Exemple
+
+#+DOWNLOADED: screenshot @ 2020-05-04 12:09:53
+[[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-09-53_screenshot.png]]

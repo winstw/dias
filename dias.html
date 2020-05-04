@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Logique de programmation</title>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="/home/geof/formation/presentations/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="/home/geof/formation/presentations/reveal.js/css/theme/moon.css" id="theme"/>
+
+<link rel="stylesheet" href="./dias.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '/home/geof/formation/presentations/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Logique de programmation</h1><p class="date">Created: 2020-05-04 lun 22:56</p>
+</section>
+
+<section>
+<section id="slide-orgda13f15">
+<h2 id="orgda13f15"><span class="section-number-2">1</span> ALGORITHMIQUE ET PROGRAMMATION</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgb192862">
+<h3 id="orgb192862"><span class="section-number-3">1.1</span> ALGORITHMIQUE</h3>
+<p class="fragment">
+<b>ALGORITHMIQUE</b><br />
+Science des algorithmes.
+<br />
+</p>
+<p class="fragment">
+<b>ALGORITHME</b><br />
+ Suite ordonnée d'instructions qui indique la démarche à suivre pour résoudre une série de problèmes équivalents.
+<br />
+</p>
+<p class="fragment">
+<i>Un algorithme ne doit contenir que des instructions compréhensibles par celui qui devra l'exécuter.</i>
+</p>
+
+
+
+
+<aside class="notes">
+<p>
+Un algorithme ne doit contenir que des instructions compréhensibles par celui qui devra l'exécuter.
+</p>
+
+</aside>
+
+</section>
+<section id="slide-orgbf34dae">
+<h4 id="orgbf34dae">On exécute des algorithmes (presque) tous les jours !</h4>
+
+<div class="figure">
+<p><img src="dias_att/screenshot-20200424-114923.png" alt="screenshot-20200424-114923.png" class="fragment" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgcc34c7f">
+<h4 id="orgcc34c7f">Exemple</h4>
+<p>
+Extrait d’un dialogue entre un touriste égaré et un autochtone :
+</p>
+<p class="fragment">
+« Pourriez-vous m’indiquer le chemin de la gare, s’il vous plait ? »
+</p>
+<p class="fragment">
+« Oui bien sûr : vous allez tout droit jusqu’au prochain carrefour, vous prenez à gauche au carrefour et ensuite la troisième à droite, et vous verrez la gare juste en face de vous. »
+</p>
+<p class="fragment">
+« Merci. »
+</p>
+
+</section>
+<section id="slide-orgcc34c7f-split">
+<p>
+La réponse de l’autochtone est la <b>description d’une suite ordonnée d’instructions</b> : « allez tout droit, prenez à gauche, prenez la troisième à droite ».
+</p>
+<p class="fragment">
+Celles-ci <b>manipulent des données</b> : « carrefour, rues »
+</p>
+<p class="fragment">
+Et permettent de <b>réaliser la tâche désirée</b> : « aller à la gare. »
+</p>
+<p class="fragment">
+Elles sont <b>compréhensibles</b> par des humains.
+</p>
+
+</section>
+<section id="slide-org8bc538a">
+<h4 id="org8bc538a">Critères de qualité</h4>
+<p>
+VALIDITE
+<br />
+ROBUSTESSE
+<br />
+REUTILISABILITE
+<br />
+COMPLEXITE
+<br />
+EFFICACITE
+<br />
+MAINTENABILITE
+<br />
+ELEGANCE
+</p>
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+<section id="slide-org08e11c5">
+<h5 id="org08e11c5">Validité</h5>
+<p>
+La validité d’un algorithme est son aptitude à <b>réaliser exactement la tâche</b> pour laquelle il a été
+conçu.
+</p>
+
+
+<p>
+<br />
+</p>
+<p class="fragment">
+ <i>Arrive-t-on effectivement à la gare en exécutant scrupuleusement les instructions dans
+l’ordre anoncé ?</i>
+</p>
+
+
+</section>
+<section id="slide-orgcb255c6">
+<h5 id="orgcb255c6">Robustesse</h5>
+<p>
+La robustesse d’un algorithme est son aptitude à <b>se protéger de conditions anormales</b>
+d’utilisation.
+</p>
+
+
+<p>
+<br />
+</p>
+<p class="fragment">
+ <i>Le chemin proposé a été pensé pour un piéton, alors qu’il est possible que le « touriste égaré
+» soit en voiture et que la « troisième à droite » soit en sens interdit.</i>
+</p>
+
+
+</section>
+<section id="slide-orgb05b433">
+<h5 id="orgb05b433">Réutilisabilité</h5>
+<p>
+La réutilisabilité d’un algorithme est son aptitude à être <b>réutilisé pour résoudre des tâches
+équivalentes</b> à celle pour laquelle il a été conçu.
+</p>
+
+<p>
+<br />
+</p>
+
+<p class="fragment">
+ <i>L’algorithme de recherche du chemin de la gare est-il réutilisable tel quel pour se rendre à la
+mairie?</i>
+</p>
+
+<p class="fragment">
+<i>A priori non, sauf si la mairie est juste à côté de la gare.</i>
+</p>
+
+
+
+</section>
+<section id="slide-org078bfd7">
+<h5 id="org078bfd7">Complexité</h5>
+<p>
+La complexité d’un algorithme est le <b>nombre d’instructions élémentaires</b> à exécuter pour réaliser
+la tâche pour laquelle il a été conçu.
+</p>
+
+<p>
+<br />
+</p>
+<p class="fragment">
+ <i>Si le « touriste égaré » est un piéton, la complexité de l’algorithme de recherche de chemin
+peut se compter en nombre de pas pour arriver à la gare.</i>
+</p>
+
+</section>
+<section id="slide-org7c50b3a">
+<h5 id="org7c50b3a">Efficacité</h5>
+<p>
+L’efficacité d’un algorithme est son aptitude à utiliser de <b>manière optimale</b> les ressources du
+matériel qui l’exécute.
+</p>
+
+<p>
+<br />
+</p>
+<p class="fragment">
+<i>N’existerait-il pas un raccourci piétonnier pour arriver plus vite à la gare ?</i>
+</p>
+
+</section>
+<section id="slide-org3f47bed">
+<h5 id="org3f47bed">Maintenabilité</h5>
+<p>
+Capacité d'un algorithme à être <b>mis à jour, amélioré, modifié</b> facilement.
+</p>
+
+</section>
+<section id="slide-orgc8ea6a6">
+<h5 id="orgc8ea6a6">Elegance</h5>
+<dl>
+<dt>KISS</dt><dd>Keep It Simple, Stupid.<br />
+<br /></dd>
+
+<dt>DRY</dt><dd>Don't Repeat Yourself<br /></dd>
+
+</dl>
+<p>
+<br />
+</p>
+<blockquote >
+<p>
+La perfection est atteinte, non pas lorsqu'il n'y a plus rien à ajouter, mais lorsqu'il n'y a plus rien à retirer.
+</p>
+</blockquote>
+
+</section>
+</section>
+<section>
+<section id="slide-org193a39e">
+<h3 id="org193a39e"><span class="section-number-3">1.2</span> PROGRAMMATION</h3>
+<p>
+La programmation d’un ordinateur consiste à lui « expliquer » en détail ce qu’il doit faire, en
+sachant :
+</p>
+
+<ul>
+<li>qu’il ne « comprend » pas le langage humain,</li>
+<li>qu’il peut seulement effectuer un traitement automatique sur des séquences de 0 et de 1</li>
+
+</ul>
+
+</section>
+<section id="slide-org1a8a8fb">
+<h4 id="org1a8a8fb">Langage de programmation</h4>
+<p>
+Un langage de programmation est composé d’un ensemble de <b>mots-clés</b> (choisis arbitrairement),
+de <b>règles</b> très précises indiquant comment on peut assembler ces mots pour former des «
+phrases » et de <b>procédures de traduction</b> des phrases en séquence de 0 et de 1.<br />
+</p>
+
+<p class="fragment">
+Ils permettent de faire <b>abstraction</b> des mécanismes bas niveaux de la machine. <br />
+</p>
+
+<p class="fragment">
+Ils facilitent la <b>rédaction</b> et la <b>compréhension</b> d’un code source par un humain.
+</p>
+
+</section>
+<section id="slide-org49532c0">
+<h4 id="org49532c0">Traduction</h4>
+<p>
+La traduction des textes écrits dans un langage de programmation en instructions machines est
+réalisée soit par des <b>interprètes</b>, soit par des <b>compilateurs</b>.
+</p>
+</section>
+<section id="slide-org750fa08">
+<h5 id="org750fa08">INTERPRETE</h5>
+<p>
+Les interprètes traduisent et exécutent les instructions les unes après les autres.<br />
+</p>
+
+
+<div class="figure">
+<p><img src="data/00/b83021-79d4-4bff-947e-748ed750946e/screenshot-20200429-121815.png" alt="screenshot-20200429-121815.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgbc74d2a">
+<h5 id="orgbc74d2a">COMPILATEUR</h5>
+<p>
+Les compilateurs traduisent toutes les instructions du programme en <b>langage machine</b> et
+sauvegardent cet état dans un fichier exécutable (dit "binaire").
+L'ordinateur exécute le code machine <b>sans utiliser le code source</b>, ce qui permet de gagner du
+temps à l'exécution.
+</p>
+
+
+
+<div class="figure">
+<p><img src="data/ba/6a703b-3209-4aa9-b9f0-d2c43b095ebd/screenshot-20200429-122050.png" alt="screenshot-20200429-122050.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-org3ce48b3">
+<h5 id="org3ce48b3">HYBRIDES</h5>
+
+<div class="figure">
+<p><img src="data/6a/cbcf5e-47ba-40dc-851b-d876044873a4/screenshot-20200429-122135.png" alt="screenshot-20200429-122135.png" />
+</p>
+</div>
+
+<aside class="notes">
+<p>
+parallèle avec <b>javascript</b> : interprété, exécuté niveau machine : gros avantage <br />
+Client simple : rien à installer. Le même code va s'intérpréter suivant la machine où elle tourne.<br />
+Mais quand on va utiliser <b>typescript</b> (ajout du typage) : compilation (plutot transpilation parrce qu'on ne descend pas a plus bas niveau) va se faire entre le moment du code et de l'exécution.
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-orgeaa6a3f">
+<h2 id="orgeaa6a3f"><span class="section-number-2">2</span> MACHINE LOGIQUE</h2>
+<p>
+Pour pouvoir apprendre à écrire des programmes, il est <b>nécessaire</b> de connaitre les
+<b>caractéristiques et les compétences des machines</b> avec lesquelles nous voulons communiquer.
+De façons à nous <b>concentrer sur la logique</b> des programmes, nous imaginons une machine
+logique ne reprenant que les <b>éléments nécessaires</b> à notre propos.
+</p>
+
+</section>
+<section id="slide-orgeaa6a3f-split">
+
+
+<div class="figure">
+<p><img src="dias_att/screenshot-20200429-122323.png" alt="screenshot-20200429-122323.png" />
+</p>
+</div>
+
+
+
+<aside class="notes">
+<p>
+<b>MEMOIRE</b><br />
+</p>
+
+<ul>
+<li>La mémoire de code : liste d’instructions numérotées.</li>
+<li>La mémoire de données : ensemble de zones où il est possible de mémoriser des informations. Cet ensemble est organisé de deux manières différentes la pile et le tas.
+
+<ul>
+<li>La <b>pile</b> : à chaque zone mémoire est associé un nom qui peut être utilisé dans les instructions</li>
+
+<li>Le <b>tas</b> : les zones mémoires sont accessibles via leurs adresses.</li>
+
+</ul></li>
+
+</ul>
+
+<p>
+<b>La machine logique est l’élément dynamique de notre machine</b><br />
+</p>
+
+<ul>
+<li>Elle possède un ensemble de procédure permettant d’exécuter les instructions de notre langage logique.</li>
+
+<li>Elle est capable d’effectuer des opérations simples sur les données afin de produire de nouvelles données résultats.</li>
+
+<li>Elle est capable de charger une instruction dans la mémoire d’instructions.</li>
+<li>Elle est capable de lire et de modifier les données de la mémoire de données.</li>
+<li>Elle est capable de lire les données sur le canal d’entée (par exemple le clavier)</li>
+<li>Elle est capable d’écrire des données sur le canal de sortie (par exemple l’écran )</li>
+
+</ul>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-orge4935a7">
+<h3 id="orge4935a7"><span class="section-number-3">2.1</span> Début et fin de programme</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+</section>
+<section id="slide-orgd8bf5fd">
+<h4 id="orgd8bf5fd">Syntaxe</h4>
+
+<div class="figure">
+<p><img src="D%C3%A9but_et_fin_de_programme/2020-04-29_13-46-23_screenshot.png" alt="2020-04-29_13-46-23_screenshot.png" />
+</p>
+</div>
+
+<p>
+<b>Représentation</b><br />
+</p>
+
+
+<div class="figure">
+<p><img src="D%C3%A9but_et_fin_de_programme/2020-04-29_13-45-53_screenshot.png" alt="2020-04-29_13-45-53_screenshot.png" />
+</p>
+</div>
+
+<aside class="notes">
+<p>
+Premier programme
+</p>
+
+<ol>
+<li>Lancement du programme « prem »</li>
+<li>Mémorisation du nom du programme dans la machine logique</li>
+<li>Chargement du code dans la mémoire du code</li>
+<li>La M.L. parcourt les instructions à la recherche de l’instruction de début :
+a. Ligne 1 : ligne de commentaire =&gt; suivante
+b. Ligne 2 : ligne de commentaire =&gt; suivante
+c. Ligne 3 : ligne de commentaire =&gt; suivante
+d. Ligne 4 : Début du programme « prem » =&gt; trouvé
+<ol>
+<li>Chargement de la ligne suivante</li>
+<li>Fin de programme</li>
+
+</ol></li>
+
+</ol>
+
+</aside>
+
+</section>
+<section id="slide-orgab93821">
+<h4 id="orgab93821">Déroulement</h4>
+<p>
+Au lancement du programme la Machine Logique (ML) :
+</p>
+
+<ul>
+<li>Mémorise le nom du programme</li>
+<li>Charge le code dans la mémoire de code</li>
+<li>Recherche une instruction « Debut » suivie du nom du programme à exécuter</li>
+<li>Exécute l’instruction ayant le numéro suivant.</li>
+<li>Arrête le programme quand il exécute l’instruction « Fin » suivie du nom du programme mémorisé</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgacdbf2c">
+<h3 id="orgacdbf2c"><span class="section-number-3">2.2</span> Opérations et types de données</h3>
+<p>
+La manière de réaliser une opération sur des données dépend du type des données.
+Certaines opérations n'ont aucun sens sur certains types de données.
+</p>
+
+<p>
+<i>La technique pour filtrer de l'eau est très différente de la technique pour filtrer les
+entrées à une soirée</i>
+</p>
+
+<p>
+<i>Tandis que filtrer des montagnes n'a pas de sens</i>
+</p>
+
+
+<aside class="notes">
+<p>
+Typage sert à 3 choses :
+</p>
+
+<ul>
+<li>sert à dire si ces 0 et 1 correspondent à tel ou tel type de donnée: reprendre la séquence de bits et la tranformer en nombre ou autre</li>
+<li>vérifier les opérations (types des données d'un coté et de l'autre)</li>
+<li>besoin du type pour savoir combien de cases prendre dans sa mémoire.</li>
+
+</ul>
+
+<p>
+Javascript va ajouter des fonctionnalités à ce système où chaque donnée est typée.<br />
+Transtypage automatique, pour qu'on ait pas à gérer les types, mais piègeux, car il utilise des règles compliquées.<br />
+Javascript est typé, même si on dit le contraire, représentation "interne" et automatique des types.<br />
+</p>
+
+
+<p>
+Différences entre statiquement/dynamiquement typé:
+double avantage:
+</p>
+<ul>
+<li>performance</li>
+
+</ul>
+<p>
+fortement type, meilleure gestion de la mémoire, plus fine, on va pouvoir réserver l'espace nécessaire à l'application, et pas un espace énorme ou variable.
+</p>
+<ul>
+<li>rigueur</li>
+
+</ul>
+
+<p>
+Va directement empêcher opérations (à la compilation et donc durant le codage si bon outil) sur des types incompatibles. 
+</p>
+
+<p>
+Parfois en JS, ça va pêter à l'exécution. JS va souvent transformer pour correspondre, et donner une réponse complètement débile, inattendue =&gt; ROBUSTESSE &#x2013;
+ Amène l'erreur au niveau de l'exécution, plutôt qu'au niveau du développement, où elle peut etre traitée.
+</p>
+
+</aside>
+</section>
+<section id="slide-org0c6bb1e">
+<h4 id="org0c6bb1e">Types et machine logique</h4>
+<p>
+Il en est de même pour la machine logique. Une opération sur des valeurs ne pourra être exécutée qu'en fonction du type de données de ces valeurs.
+</p>
+
+<p>
+Il sera donc nécessaire de définir:
+</p>
+
+<ul>
+<li>Les types de données connues par la machine logique</li>
+<li>Les opérations possibles sur chaque type</li>
+<li>Les syntaxes reconnues par la machine pour exprimer ces types</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf891ce4">
+<h3 id="orgf891ce4"><span class="section-number-3">2.3</span> Type de données numériques</h3>
+<p>
+Pour la ML une donnée numérique est équivalente à un nombre réel en algèbre.
+</p>
+
+<p>
+Symbole identifiant du type : <b>N</b>
+</p>
+
+<p>
+Règles d’écriture : identiques aux règles d’écriture des nombres décimaux en algèbre<br />
+</p>
+
+<p>
+12 <br />
+456,7 <br />
+0,005
+</p>
+
+</section>
+<section id="slide-org7ade905">
+<h4 id="org7ade905">Priorités des opérateurs</h4>
+
+<div class="figure">
+<p><img src="Op%C3%A9rations_et_types_de_donn%C3%A9es/2020-04-29_16-00-43_screenshot.png" alt="2020-04-29_16-00-43_screenshot.png" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org2835b97">
+<h2 id="org2835b97"><span class="section-number-2">3</span> VARIABLES</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org29951ab">
+<h3 id="org29951ab"><span class="section-number-3">3.1</span> Definitions</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+</section>
+<section id="slide-org5a61f55">
+<h4 id="org5a61f55"></h4>
+<p>
+<b>Constante littérale</b><br />
+Donnée écrite directement dans le code
+</p>
+
+</section>
+<section id="slide-orgc112af7">
+<h4 id="orgc112af7"></h4>
+<p>
+<b>Constante symbolique</b><br />
+ Nom attribué à une valeur.<br />
+La valeur attribuée ne pourra pas être modifiée pendant l’exécution du programme
+</p>
+
+</section>
+<section id="slide-orgba589c9">
+<h4 id="orgba589c9"></h4>
+<p>
+<b>Variable</b><br />
+La variable associe également un nom à une valeur, mais la valeur pourra être modifiée lors de l’exécution du programme.<br />
+La valeur des variables est enregistrée dans la pile.
+</p>
+
+</section>
+<section id="slide-org09fc766">
+<h4 id="org09fc766"></h4>
+<p>
+<b>Assignation</b><br />
+Opération d’attribution d’une valeur à une variable.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org0229b32">
+<h3 id="org0229b32"><span class="section-number-3">3.2</span> Déclaration</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+</section>
+<section id="slide-orgf162e06">
+<h4 id="orgf162e06">Syntaxe</h4>
+<p>
+Bloc de déclaration:
+</p>
+
+<div class="figure">
+<p><img src="D%C3%A9claration_des_variables_et_des_constantes/2020-04-29_16-34-31_screenshot.png" alt="2020-04-29_16-34-31_screenshot.png" height="200px" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgf162e06-split">
+<p>
+Déclaration de constante
+</p>
+
+<div class="figure">
+<p><img src="D%C3%A9claration_des_variables_et_des_constantes/2020-04-29_16-34-53_screenshot.png" alt="2020-04-29_16-34-53_screenshot.png" height="80px" />
+</p>
+</div>
+
+<p>
+Déclaration de variable
+</p>
+
+<div class="figure">
+<p><img src="D%C3%A9claration_des_variables_et_des_constantes/2020-04-29_16-35-06_screenshot.png" alt="2020-04-29_16-35-06_screenshot.png" height="80px" />
+</p>
+</div>
+</section>
+<section id="slide-orgce15273">
+<h4 id="orgce15273">Exemple</h4>
+
+<div class="figure">
+<p><img src="D%C3%A9claration_des_variables/2020-04-29_16-39-08_screenshot.png" alt="2020-04-29_16-39-08_screenshot.png" height="300px" />
+</p>
+</div>
+</section>
+<section id="slide-org06687f6">
+<h4 id="org06687f6">Représentation</h4>
+
+<div class="figure">
+<p><img src="VARIABLES/2020-04-29_16-40-07_screenshot.png" alt="2020-04-29_16-40-07_screenshot.png" />
+</p>
+</div>
+<aside class="notes">
+<p>
+Création des variables (ML)
+</p>
+<ol>
+<li>Chargement du code en mémoire</li>
+<li>Début de programme</li>
+<li>Début de bloc de déclarations des variables locales</li>
+<li>Création une page mémoire pour le programme.</li>
+<li>Déclaration de la constante « AUTEUR »</li>
+<li>Déclaration et création de la variable « nom » de type Texte et de valeur chaine vide.</li>
+<li>Déclaration et création de la variable « age » de type Numérique et de valeur 25.</li>
+<li>Déclaration et création de la variable « travail » de type booléenne et de valeur FAUX.</li>
+<li>Fin de déclaration des variables locales</li>
+<li>Fin de programme</li>
+<li>Destruction de la page mémoire</li>
+
+</ol>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org474146f">
+<h3 id="org474146f"><span class="section-number-3">3.3</span> Instruction d’assignation</h3>
+<p>
+Une instruction d’assignation provoque la modification de la valeur d’une variable.<br />
+<br />
+</p>
+<p class="fragment">
+La valeur assignée à une variable doit être de même type que la variable.<br />
+<br />
+</p>
+
+
+<p class="fragment">
+<i>Attention : la valeur se trouvant dans la variable avant l’assignation est définitivement perdue à
+la fin de l’instruction</i>
+</p>
+
+</section>
+<section id="slide-org6b2d2ae">
+<h4 id="org6b2d2ae">Syntaxe :</h4>
+
+<div class="figure">
+<p><img src="VARIABLES/2020-04-30_13-56-18_screenshot.png" alt="2020-04-30_13-56-18_screenshot.png" height="80px" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgb099c2b">
+<h4 id="orgb099c2b">Déroulement</h4>
+<p>
+Lors de l’assignation d’une expression dans une variable:
+</p>
+<ol>
+<li class="fragment appear">L’expression est évaluée</li>
+<li class="fragment appear">Le résultat de l’évaluation est assignée à la variable</li>
+
+</ol>
+<p>
+<br />
+</p>
+
+</section>
+<section id="slide-org75adc86">
+<h4 id="org75adc86">Représentation</h4>
+
+<div class="figure">
+<p><img src="VARIABLES/2020-04-30_14-22-49_screenshot.png" alt="2020-04-30_14-22-49_screenshot.png" />
+</p>
+</div>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-org5c03a4c">
+<h3 id="org5c03a4c"><span class="section-number-3">3.4</span> Evaluation des Expressions</h3>
+<p>
+Lorsqu’une instruction contient une expression, la ML commence par évaluer l’expression avant
+d’effectuer l’instruction
+</p>
+
+</section>
+<section id="slide-org00f5423">
+<h4 id="org00f5423">Déroulement</h4>
+
+<div class="figure">
+<p><img src="VARIABLES/2020-04-30_14-21-31_screenshot.png" alt="2020-04-30_14-21-31_screenshot.png" style="float:left;" height="400px" />
+</p>
+</div>
+
+<ol style="float:right; font-size:2rem;">
+<li class="fragment appear">Chaque variable est remplacée par sa valeur actuelle
+<ul>
+<li class="fragment appear">X par 15</li>
+<li class="fragment appear">Y par 12</li>
+<li class="fragment appear">Z par -1</li>
+<li class="fragment appear">X par 15</li>
+
+</ul></li>
+<li class="fragment appear">Chaque opération est effectuée puis remplacée
+<ul>
+<li class="fragment appear">5 * 15 par 75</li>
+<li class="fragment appear">2 * 12 par 24</li>
+<li class="fragment appear">24 * -1 par -24</li>
+<li class="fragment appear">75 - -24 par 99</li>
+<li class="fragment appear">99 mod 15 par 9</li>
+
+</ul></li>
+
+</ol>
+
+</section>
+</section>
+<section>
+<section id="slide-org7b6be32">
+<h3 id="org7b6be32"><span class="section-number-3">3.5</span> Table d'évolution</h3>
+<p>
+Les tables de valeurs reprennent l’état de la mémoire à la fin de
+chaque instruction
+</p>
+</section>
+<section id="slide-org7b6be32-split">
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="all" frame="hsides" class="org-table">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Programme</th>
+<th scope="col" class="org-right">N° ligne</th>
+<th scope="col" class="org-right">variable a</th>
+<th scope="col" class="org-right">variable b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">.  Debut ex1</td>
+<td class="org-right">1</td>
+<td class="org-right">/</td>
+<td class="org-right">/</td>
+</tr>
+
+<tr>
+<td class="org-left">.     variables locales</td>
+<td class="org-right">2</td>
+<td class="org-right">/</td>
+<td class="org-right">/</td>
+</tr>
+
+<tr>
+<td class="org-left">.          var a :N &lt;- 1</td>
+<td class="org-right">3</td>
+<td class="org-right">1</td>
+<td class="org-right">/</td>
+</tr>
+
+<tr>
+<td class="org-left">.          var b :N &lt;- 2</td>
+<td class="org-right">4</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">.      fin variables locales</td>
+<td class="org-right">5</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">.      a &lt;- a + b</td>
+<td class="org-right">6</td>
+<td class="org-right">3</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">.      b &lt;- b + a</td>
+<td class="org-right">7</td>
+<td class="org-right">3</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">.      a &lt;- b - a</td>
+<td class="org-right">8</td>
+<td class="org-right">2</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">.      b &lt;- b + a</td>
+<td class="org-right">9</td>
+<td class="org-right">2</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">.      a &lt;- a + b</td>
+<td class="org-right">10</td>
+<td class="org-right">9</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">.      a &lt;- a – a</td>
+<td class="org-right">11</td>
+<td class="org-right">0</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">.  Fin ex1</td>
+<td class="org-right">12</td>
+<td class="org-right">0</td>
+<td class="org-right">7</td>
+</tr>
+</tbody>
+</table>
+
+
+<script>
+let values = document.querySelectorAll('.org-table td:nth-child(n+3)')
+values.forEach(tr => {
+tr.classList.add('value_table_cell');
+tr.addEventListener('click', (event) => {
+console.log(event.target);
+event.target.classList.remove('value_table_cell');
+}
+)
+});
+</script>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orge29762d">
+<h2 id="orge29762d"><span class="section-number-2">4</span> AFFICHAGE ET SAISIE</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgc898ef6">
+<h3 id="orgc898ef6"><span class="section-number-3">4.1</span> Afficher</h3>
+<p>
+L’instruction « afficher » provoque l’affichage d’une liste de valeur à l’écran.<br />
+</p>
+
+<p>
+<b>Syntaxe</b><br />
+</p>
+
+
+
+<div class="figure">
+<p><img src="AFFICHAGE_ET_SAISIE/2020-04-30_16-36-11_screenshot.png" alt="2020-04-30_16-36-11_screenshot.png" height="60px" />
+</p>
+</div>
+
+
+</section>
+<section id="slide-org844f22b">
+<h4 id="org844f22b">Deroulement</h4>
+<ol>
+<li>La ML calcule le résultat de chaque expression et affiche les résultats les uns à la suite des autres.</li>
+<li class="fragment appear">Si une expression commence et se termine par le caractère guillemet (") le texte entre les guillemets est affiché tel quel à l’écran.</li>
+
+</ol>
+
+</section>
+<section id="slide-orge7a5254">
+<h4 id="orge7a5254">Représentation</h4>
+
+<div class="figure">
+<p><img src="AFFICHAGE_ET_SAISIE/2020-04-30_16-39-42_screenshot.png" alt="2020-04-30_16-39-42_screenshot.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-orge7a5254-split">
+
+<div class="figure">
+<p><img src="AFFICHAGE_ET_SAISIE/2020-04-30_16-40-45_screenshot.png" alt="2020-04-30_16-40-45_screenshot.png" height="60px" />
+</p>
+</div>
+
+<ol style="font-size:2.2rem">
+<li class="fragment appear">Affichage de la première valeur « la division entière de »</li>
+<li class="fragment appear">Remplacement de a par 7</li>
+<li class="fragment appear">Affichage de la deuxième valeur « 7 »</li>
+<li class="fragment appear">Affichage de la troisième valeur « par »</li>
+<li class="fragment appear">Remplacement de b par 3</li>
+<li class="fragment appear">Affichage de la quatrième valeur « 3 »</li>
+<li class="fragment appear">Remplacement de a par 7</li>
+<li class="fragment appear">Remplacement de b par 3</li>
+<li class="fragment appear">Remplacement de « 7 DIV 3 » par 2</li>
+<li class="fragment appear">Affichage de la cinquième valeur « 2 »</li>
+
+</ol>
+
+<p class="fragment appear">
+Si au moment de l'exécution de l'instruction a=7 et b=3, la ligne
+affichée à l'écran sera: <b>la division entière de 7 par 3 est 2</b>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf8e0190">
+<h3 id="orgf8e0190"><span class="section-number-3">4.2</span> Saisir</h3>
+<p>
+L'instruction "saisir" provoque : l'interruption de l'exécution du
+programme dans l'attente d'une valeur communiquée par l'utilisateur et
+la réception et la mise en mémoire de la valeur reçue
+</p>
+
+</section>
+<section id="slide-orgc624de0">
+<h4 id="orgc624de0">Syntaxe :</h4>
+
+<div class="figure">
+<p><img src="AFFICHAGE_ET_SAISIE/2020-04-30_16-46-35_screenshot.png" alt="2020-04-30_16-46-35_screenshot.png" height="60px;" />
+</p>
+</div>
+
+
+<p>
+<b>Remarques :</b>
+</p>
+<ul>
+<li class="fragment appear">Le type de la valeur saisie est celui de la variable</li>
+<li class="fragment appear">La machine logique n'accepte que des valeurs de ce type</li>
+<li class="fragment appear">Quand la machine logique reçoit une valeur du bon type, elle modifie
+la valeur de la variable dans la mémoire de données</li>
+
+</ul>
+
+</section>
+<section id="slide-org04d529d">
+<h4 id="org04d529d">Représentation</h4>
+
+<div class="figure">
+<p><img src="AFFICHAGE_ET_SAISIE/2020-04-30_16-48-24_screenshot.png" alt="2020-04-30_16-48-24_screenshot.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-org21fca9d">
+<h4 id="org21fca9d">Affichage et la lecture dans une table de valeurs</h4>
+
+<div class="figure">
+<p><img src="AFFICHAGE_ET_SAISIE/2020-04-30_16-49-18_screenshot.png" alt="2020-04-30_16-49-18_screenshot.png" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org7e6ad91">
+<h2 id="org7e6ad91"><span class="section-number-2">5</span> TYPE DE DONNÉES BOOLÉENNES</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org960f473">
+<h3 id="org960f473"><span class="section-number-3">5.1</span> Valeurs booléennes</h3>
+<p>
+Symbole identifiant du type : <b>B</b><br />
+Règles d’écriture : <b>VRAI</b> ou <b>FAUX</b>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgde892a9">
+<h3 id="orgde892a9"><span class="section-number-3">5.2</span> Opérateurs booléens</h3>
+<p>
+ <b>La négation (NON)</b><br />
+L'opérateur de négation donne un résultat inverse à la valeur de son opérande<br />
+<span class="underline">Table de valeurs :</span>
+</p>
+
+
+<div class="figure">
+<p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-04-30_16-52-25_screenshot.png" alt="2020-04-30_16-52-25_screenshot.png" />
+</p>
+</div>
+
+
+</section>
+<section id="slide-orgde892a9-split">
+
+<p>
+<b>La conjonction (ET)</b> <br />
+Le résultat d'une conjonction n’est VRAI que si ses deux opérandes sont VRAI<br />
+</p>
+
+<p>
+<span class="underline">Table de valeurs :</span>
+</p>
+
+
+<div class="figure">
+<p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-04-30_16-53-19_screenshot.png" alt="2020-04-30_16-53-19_screenshot.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgde892a9-split">
+
+<p>
+<b>La disjonction (OU)</b><br />
+</p>
+
+<p>
+Le résultat d'une conjonction est VRAI si au moins un de ses deux opérandes est VRAI<br />
+</p>
+
+<p>
+<span class="underline">Table de valeurs :</span>
+</p>
+
+
+
+<div class="figure">
+<p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-04-30_16-53-52_screenshot.png" alt="2020-04-30_16-53-52_screenshot.png" />
+</p>
+</div>
+
+
+</section>
+<section id="slide-org5b6ed55">
+<h4 id="org5b6ed55">Les opérateurs de comparaison</h4>
+<p>
+Les opérateurs de comparaison ont comme résultat une valeur booléenne.<br />
+<br />
+Les deux opérandes d'une comparaison doivent être de même type et la comparaison doit être implémentée par le type de données.<br />
+<br />
+</p>
+<p class="fragment">
+<i>Remarque : pour chaque nouveau type, il faudra définir quels opérateurs de
+comparaison sont définis.</i>
+</p>
+
+</section>
+<section id="slide-org5b6ed55-split">
+
+<p>
+Les comparateurs d'<b>égalité (=)</b> et de <b>différence(≠)</b> sont définis pour :
+</p>
+<ul>
+<li>les valeurs de type <b>numérique</b></li>
+<li>les valeurs de type <b>booléen</b></li>
+
+</ul>
+
+</section>
+<section id="slide-org5b6ed55-split">
+
+<p>
+Les comparateurs d'<b>ordre (&lt;, ≤, &gt;, ≥)</b> sont définis pour :
+</p>
+<ul>
+<li>les valeurs de type numérique.</li>
+
+</ul>
+
+</section>
+<section id="slide-org518f42c">
+<h4 id="org518f42c">Priorité des opérateurs</h4>
+
+<div class="figure">
+<p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-05-22_screenshot.png" alt="2020-05-04_12-05-22_screenshot.png" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org60bc7ec">
+<h3 id="org60bc7ec"><span class="section-number-3">5.3</span> Expression booléenne</h3>
+<p>
+Une expression booléenne est une expression dont le résultat est une valeur booléenne<br />
+</p>
+
+</section>
+<section id="slide-org2ac254e">
+<h4 id="org2ac254e">Exemple d’évaluation d'une expression booléenne.</h4>
+
+<div class="figure">
+<p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-06-59_screenshot.png" alt="2020-05-04_12-06-59_screenshot.png" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org10e74fb">
+<h3 id="org10e74fb"><span class="section-number-3">5.4</span> Syntaxe</h3>
+</section>
+<section id="slide-org10e74fb-split">
+<p>
+<b>Déclaration variable booléenne</b>
+</p>
+
+
+<div class="figure">
+<p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-10-45_screenshot.png" alt="2020-05-04_12-10-45_screenshot.png" height="60px" />
+</p>
+</div>
+
+<p>
+<b>Constante booléenne</b>
+</p>
+
+
+<div class="figure">
+<p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-11-39_screenshot.png" alt="2020-05-04_12-11-39_screenshot.png" height="60px" />
+</p>
+</div>
+
+
+</section>
+<section id="slide-org10e74fb-split">
+<p>
+<b>Assignation variable booléenne</b>
+</p>
+
+
+<div class="figure">
+<p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-10-57_screenshot.png" alt="2020-05-04_12-10-57_screenshot.png" height="60px" />
+</p>
+</div>
+
+</section>
+<section id="slide-org10e74fb-split">
+<p>
+<b>Expression booléenne</b>
+</p>
+
+
+<div class="figure">
+<p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-11-18_screenshot.png" alt="2020-05-04_12-11-18_screenshot.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-org10e74fb-split">
+<p>
+<b>Opération de comparaison</b>
+</p>
+
+
+<div class="figure">
+<p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-12-04_screenshot.png" alt="2020-05-04_12-12-04_screenshot.png" />
+</p>
+</div>
+
+<p>
+<b>Opérateur d’égalité</b>
+</p>
+
+
+<div class="figure">
+<p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-12-22_screenshot.png" alt="2020-05-04_12-12-22_screenshot.png" height="60px" />
+</p>
+</div>
+
+<p>
+<b>Comparateur d’ordre</b>
+</p>
+
+
+<div class="figure">
+<p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-10-15_screenshot.png" alt="2020-05-04_12-10-15_screenshot.png" height="60px" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgdd22edf">
+<h3 id="orgdd22edf"><span class="section-number-3">5.5</span> Exemple</h3>
+
+<div class="figure">
+<p><img src="TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-09-53_screenshot.png" alt="2020-05-04_12-09-53_screenshot.png" />
+</p>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="/home/geof/formation/presentations/reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+width:1200, height:800, margin: 0.1, minScale:0.2, maxScale:2.5,
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: '/home/geof/formation/presentations/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: '/home/geof/formation/presentations/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: '/home/geof/formation/presentations/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: '/home/geof/formation/presentations/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: '/home/geof/formation/presentations/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
