@@ -11,17 +11,38 @@ table.org-table td.org-right {
     border: 1px solid;
 }
 
+
+
 table.org-table td:nth-child(1) {
     border: none;
     white-space: pre-wrap;
     width: 50%;
 }
 
+
+table.org-table-bool td.org-right {
+    text-align: center;
+    border: 1px solid;
+}
+
+
+
+.whitespace td {
+    white-space: pre-wrap;
+}
+
+.whitespace {
+    white-space: pre-wrap;
+}
+
+.whitespace * {
+    white-space: pre-wrap;
+}
+
 table.org-table {
     font-size: 2rem;
     border: 1px solid;
 }
-
 
 .value_table_cell {
     font-size: 0px;

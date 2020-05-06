@@ -1,3 +1,5 @@
+# -*- mode: Org; org-download-heading-lvl: nil; -*-
+
 #+Title: Logique de programmation
 
 #+REVEAL_INIT_OPTIONS: width:1200, height:800, margin: 0.1, minScale:0.2, maxScale:2.5
@@ -9,6 +11,8 @@
 #+REVEAL_HLEVEL: 2
 #+REVEAL_EXTRA_CSS: ./dias.css
 #+REVEAL_ROOT: ./reveal.js
+
+
 
 * ALGORITHMIQUE ET PROGRAMMATION
 
@@ -488,6 +492,9 @@ chaque instruction
 
  #+begin_export html
  <script>
+
+
+
  let values = document.querySelectorAll('.org-table td:nth-child(n+3)')
  values.forEach(tr => {
  tr.classList.add('value_table_cell');
@@ -497,7 +504,7 @@ chaque instruction
  }
  )
  });
- </script>
+</script>
  #+end_export
 
 
@@ -637,6 +644,7 @@ chaque instruction
 # #+ORGTBL: SEND valeurs orgtbl-to-html :attributes (:contenteditable t :border "2" :cellspacing "0" :cellpadding "6" :rules "groups" :frame "hsides")
 ** 
 
+
 * AFFICHAGE ET SAISIE
 ** Afficher
 L’instruction « afficher » provoque l’affichage d’une liste de valeur à l’écran.\\
@@ -724,9 +732,10 @@ Règles d’écriture : *VRAI* ou *FAUX*
 
  *La négation (NON)*\\
 L'opérateur de négation donne un résultat inverse à la valeur de son opérande\\
-_Table de valeurs :_
+_Table de vérité :_
 
 #+DOWNLOADED: screenshot @ 2020-04-30 16:52:25
+#+ATTR_HTML: :height 230px
 [[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-04-30_16-52-25_screenshot.png]]
 
 
@@ -735,9 +744,10 @@ _Table de valeurs :_
 *La conjonction (ET)* \\
 Le résultat d'une conjonction n’est VRAI que si ses deux opérandes sont VRAI\\
 
-_Table de valeurs :_
+_Table de vérité :_
 
 #+DOWNLOADED: screenshot @ 2020-04-30 16:53:19
+#+ATTR_HTML: :height 359px
 [[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-04-30_16-53-19_screenshot.png]]
 
 #+REVEAL: split
@@ -746,10 +756,11 @@ _Table de valeurs :_
 
 Le résultat d'une conjonction est VRAI si au moins un de ses deux opérandes est VRAI\\
 
-_Table de valeurs :_
+_Table de vérité :_
 
 
 #+DOWNLOADED: screenshot @ 2020-04-30 16:53:52
+#+ATTR_HTML: :height 350px
 [[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-04-30_16-53-52_screenshot.png]]
 
 
@@ -782,10 +793,11 @@ Les comparateurs d'*ordre (<, ≤, >, ≥)* sont définis pour :
 Une expression booléenne est une expression dont le résultat est une valeur booléenne\\
 
 *** Exemple d’évaluation d'une expression booléenne.
+ ( 45 / 5 ≥ 6 + 4 ) ou non ( 3 * 4 = 7 ) et ( VRAI ou ( 5 ≠ 5 ))
 
 #+DOWNLOADED: screenshot @ 2020-05-04 12:06:59
+#+ATTR_REVEAL: :frag t
 [[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-06-59_screenshot.png]]
-
 ** Syntaxe
 #+REVEAL: split
 *Déclaration variable booléenne*
@@ -836,3 +848,215 @@ Une expression booléenne est une expression dont le résultat est une valeur bo
 
 #+DOWNLOADED: screenshot @ 2020-05-04 12:09:53
 [[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-09-53_screenshot.png]]
+** Table de vérité
+#+ATTR_HTML: :class org-table-bool
+            | X | Y | X ou Y | non (X ou Y) |
+            |---+---+--------+--------------|
+            |   |   |    <r> |          <r> |
+            | 0 | 0 |      0 |            1 |
+            | 0 | 1 |      1 |            0 |
+            | 1 | 0 |      1 |            0 |
+            | 1 | 1 |      1 |            0 |
+
+
+* STRUCTURES DE CONTRÔLE: ALTERNATIVE
+** Alternative simple
+La structure alternative permet d’effectuer une suite d'instructions si une condition est remplie et d'en effectuer une autre si celle-ci ne l'est pas.\\
+\\
+L'exécution de l'alternative commence par l'évaluation de la condition (vraie ou fausse) suivie de l'exécution de la suite d'instructions associées à la réponse obtenue.\\
+*** Syntaxe
+
+
+#+DOWNLOADED: screenshot @ 2020-05-06 09:57:11
+[[file:images/2020-05-06_09-57-11_screenshot.png]]
+
+
+
+Lorsque le résultat de l'évaluation de l'expression booléenne est :\\
+
+#+DOWNLOADED: screenshot @ 2020-05-06 09:57:41
+[[file:images/2020-05-06_09-57-41_screenshot.png]]
+*** Représentation
+
+#+DOWNLOADED: screenshot @ 2020-05-06 09:58:08
+[[file:images/2020-05-06_09-58-08_screenshot.png]]
+*** Table des valeurs
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:00:06
+[[file:images/2020-05-06_10-00-06_screenshot.png]]
+*** Variante
+Lorsque aucune instruction n'est à exécuter quand le test est faux, on n'indiquera pas le sinon.\\
+*** Variante : Syntaxe
+#+DOWNLOADED: screenshot @ 2020-05-06 10:05:52
+[[file:images/2020-05-06_10-05-52_screenshot.png]]
+
+*** Variante : Représentation
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:07:08
+[[file:images/2020-05-06_10-07-08_screenshot.png]]
+
+** Alternatives simples imbriquées
+*** Ordinogramme
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:08:30
+[[file:images/2020-05-06_10-08-30_screenshot.png]]
+
+*** Pseudo-code
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:09:00
+#+ATTR_HTML: :height 600px
+[[file:images/2020-05-06_10-09-00_screenshot.png]]
+** Alternative composée
+
+La structure alternative composée permet d’effectuer une suite d'instructions en fonction de la valeur d'une variable.
+L'exécution de l'alternative composée commence par une recherche du bloc d'instructions liées à la valeur de la variable et se poursuit en exécutant les instructions de ce bloc.
+*** Syntaxe
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:10:05
+[[file:images/2020-05-06_10-10-05_screenshot.png]]
+
+#+ATTR_REVEAL: :frag t
+/Seules les instructions se trouvant dans le cas qui a la même valeur que l'expression
+numérique seront exécutées./
+
+#+ATTR_REVEAL: :frag t
+/Si aucun cas n'a la valeur de l'expression, ce sont les instructions de "AUTRE CAS" qui
+sont exécutées./
+
+*** Représentation
+
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:12:22
+[[file:images/2020-05-06_10-12-22_screenshot.png]]
+
+* STRUCTURES DE CONTRÔLE: BOUCLES
+
+** BOUCLE "TANT QUE"
+La structure de boucle permet d'effectuer plusieurs fois une suite d'instructions.\\
+\\
+Avec la boucle « Tant que » , la suite d'instructions sera répétée tant qu'une condition est
+remplie.
+
+*** Syntaxe
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:15:02
+[[file:images/2020-05-06_10-15-02_screenshot.png]]
+
+*** Déroulement
+1. Evaluation de la condition de boucle :
+  - si VRAI passer au point 2,
+  - si FAUX passer au point 3;
+2. Exécuter les instructions de la boucle puis revenir au point 1;
+3. Exécuter les instructions se trouvant après la boucle.
+
+*** Points d'attention
+1. Pour que l'exécution puisse se terminer, il faut que la condition devienne fausse
+2. Il faut que les instructions de la boucle modifient les variables de la condition
+*** Bonne pratiques
+Pour rendre le code plus lisible et éviter les erreurs à ce niveau :
+#+ATTR_REVEAL: :frag (appear)
+ - Les instructions juste avant la condition initialisent les variables de la condition (même si elles le sont déjà par ailleurs)
+ - Les instructions modifiant ces variables dans la boucle se situent juste avant le "FIN TANT QUE"
+*** Représentation
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:33:10
+[[file:images/2020-05-06_10-33-10_screenshot.png]]
+*** Exemple
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:33:43
+[[file:images/2020-05-06_10-33-43_screenshot.png]]
+*** Table des valeurs
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:34:04
+[[file:images/2020-05-06_10-34-04_screenshot.png]]
+
+** BOUCLE "POUR"
+*** Boucle "Pour" : une boucle  "Tant que" particulière
+ #+ATTR_REVEAL: :frag t
+Le nombre d’itérations de la boucle est fixe.\\
+\\
+ #+ATTR_REVEAL: :frag t
+Il n’existe pas de cas où la boucle doit se terminer avant le nombre d’itérations.\\
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:38:26
+#+ATTR_REVEAL: :frag t
+[[file:images/2020-05-06_10-38-26_screenshot.png]]
+*** Syntaxe
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:45:06
+#+ATTR_HTML: :style float:left
+[[file:images/2020-05-06_10-45-06_screenshot.png]]
+#+ATTR_HTML: :style font-size: 2rem
++ *a* variable numérique entière
++ *b* expression numérique entière
++ *c* expression numérique entière
++ *d* constante numérique entière
+\\
+ #+ATTR_REVEAL: :frag t
+/Remarques :/
+ #+ATTR_REVEAL: :frag (appear)
++ /La variable « a » et celles utilisées pour définir les valeurs « b » et « c » ne peuvent pas être modifiées pendant l’exécution de la boucle./
++ /La définition du pas est facultative. Si elle n’est pas définie « d » = 1/
+
+*** Déroulement
+[[file:images/2020-05-06_10-45-06_screenshot.png]]
+
+ #+ATTR_REVEAL: :frag (appear)
+1. Assigner de la valeur « b » à la variable « a »
+2. Evaluer si « a » est plus petit ou égal à « c »
+  + si vrai passer au point 3,
+  + si faux passer au point 6;
+3. Exécuter les instructions de la boucle
+4. Incrémenter « a » de la valeur de « d »
+5. Revenir au point 2;
+6. Exécuter les instructions se trouvant après la boucle.
+
+
+*** Représentation
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:50:15
+[[file:images/2020-05-06_10-50-15_screenshot.png]]
+
+*** Variante : pas négatif
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:50:44
+[[file:images/2020-05-06_10-50-44_screenshot.png]]
+
+*** Exemple
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:54:33
+[[file:images/2020-05-06_10-54-33_screenshot.png]]
+
+*** Table des valeurs
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:54:54
+[[file:images/2020-05-06_10-54-54_screenshot.png]]
+
+
+** BOUCLE "JUSQU'A CE QUE"
+Avec la boucle « Jusqu’à ce que » :
++ La suite d'instructions sera exécutée jusqu’à ce que la condition soit VRAI
++ La suite d'instructions contenue sera exécutée au moins 1 fois dans tous les cas.
+
+*** Syntaxe
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:55:59
+[[file:images/2020-05-06_10-55-59_screenshot.png]]
+
+*** Représentation
+
+
+#+DOWNLOADED: screenshot @ 2020-05-06 10:56:24
+[[file:images/2020-05-06_10-56-24_screenshot.png]]
+** Choisir le type de boucle
+
+1. *Si le nombre d’itérations de la boucle est calculable avant le début des itérations :*
+ + Boucle « Pour »
+2. *Sinon si le nombre d’itérations est toujours au minimum 1*:
+ + Boucle « Jusqu’à ce que »
+3. *Sinon*:
+ + Boucle « Tant que »
+** Transformation de boucle
+
+#+DOWNLOADED: screenshot @ 2020-05-06 11:00:20
+[[file:images/2020-05-06_11-00-20_screenshot.png]]
