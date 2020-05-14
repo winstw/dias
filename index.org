@@ -850,13 +850,13 @@ Une expression booléenne est une expression dont le résultat est une valeur bo
 [[file:TYPE_DE_DONN%C3%89ES_BOOL%C3%89ENNES/2020-05-04_12-09-53_screenshot.png]]
 ** Table de vérité
 #+ATTR_HTML: :class org-table-bool
-            | X | Y | X ou Y | non (X ou Y) |
-            |---+---+--------+--------------|
-            |   |   |    <r> |          <r> |
-            | 0 | 0 |      0 |            1 |
-            | 0 | 1 |      1 |            0 |
-            | 1 | 0 |      1 |            0 |
-            | 1 | 1 |      1 |            0 |
+| X | Y | X et Y | non (X et Y) |
+|---+---+--------+--------------|
+|   |   |    <r> |          <r> |
+| 0 | 0 |      0 |            1 |
+| 0 | 1 |      0 |            1 |
+| 1 | 0 |      0 |            1 |
+| 1 | 1 |      1 |            0 |
 
 
 * STRUCTURES DE CONTRÔLE: ALTERNATIVE
@@ -1060,3 +1060,215 @@ Avec la boucle « Jusqu’à ce que » :
 
 #+DOWNLOADED: screenshot @ 2020-05-06 11:00:20
 [[file:images/2020-05-06_11-00-20_screenshot.png]]
+* TYPES DE DONNÉES CARACTÈRE ET TEXTE
+** Type Caractère
+Dans le cadre de ce cours de logique, nous utiliserons une définition simple de la notion de
+caractère.
+
+Nous nous limiterons aux lettres de l’alphabet latin + le caractère espace.
+- Symbole identifiant du type : *C*
+- Règles d’écriture : *‘a’*, *‘b’*
+*** Opérateurs sur les caractères
+
+#+DOWNLOADED: screenshot @ 2020-05-11 10:51:01
+[[file:images/2020-05-11_10-51-01_screenshot.png]]
+
+/Remarque:/\\
+/Un caractère est plus petit qu’un autre s’il est avant dans l’ordre alphabétique./
+
+** Type Texte
+Un Texte est une suite de caractères.
+- Symbole identifiant du type : *T*
+- Règles d’écriture : *"mon texte"*
+
+*** Opérateur sur les textes
+
+#+DOWNLOADED: screenshot @ 2020-05-11 10:52:25
+[[file:images/2020-05-11_10-52-25_screenshot.png]]
+
+*** Exemple
+
+#+DOWNLOADED: screenshot @ 2020-05-11 10:56:44
+[[file:images/2020-05-11_10-56-44_screenshot.png]]
+
+*** Fonction de manipulation des textes
+
+#+DOWNLOADED: screenshot @ 2020-05-11 10:57:31
+[[file:images/2020-05-11_10-57-31_screenshot.png]]
+
+*** Concaténation
+
+
+#+DOWNLOADED: screenshot @ 2020-05-11 10:58:03
+[[file:images/2020-05-11_10-58-03_screenshot.png]]
+
+* STRUCTURES DE DONNÉES : TABLEAUX
+** Problématique
+
+#+DOWNLOADED: screenshot @ 2020-05-11 10:59:13
+[[file:images/2020-05-11_10-59-13_screenshot.png]]
+
+1.Les entiers doivent être parcourus deux fois :
+a. Pour calculer la moyenne.
+b. Pour comparer chaque entier à cette moyenne.
+
+2.Il faut enregistrer chaque entier
+a. Il faut 20 variables.
+b. Il n’est pas possible de faire une boucle qui répète la même opération sur des variables différentes.
+
+** Définition
+
+Un tableau est un ensemble de variables
++ de même type,
++ désignées par un même nom,
++ et distinguées les unes des autres par leur numéro (appelé aussi indice).
+
+
+
+#+DOWNLOADED: screenshot @ 2020-05-11 11:02:21
+[[file:images/2020-05-11_11-02-21_screenshot.png]]
+
+** Déclaration
+
+Les tableaux sont déclarés avec les autres variables.
+
+#+DOWNLOADED: screenshot @ 2020-05-11 11:03:20
+[[file:images/2020-05-11_11-03-20_screenshot.png]]
+
+*** Syntaxe
+
+#+DOWNLOADED: screenshot @ 2020-05-11 11:03:56
+[[file:images/2020-05-11_11-03-56_screenshot.png]]
+
+ #+ATTR_REVEAL: :frag t
+/Remarques:/
+ #+ATTR_REVEAL: :frag (appear)
++ /La constante entre crochets détermine le nombre de cases du tableau./
++ /Les cases du tableau ne sont pas initialisées lors de la déclaration./
+
+*** Exemple
+
+#+DOWNLOADED: screenshot @ 2020-05-11 11:07:32
+[[file:images/2020-05-11_11-07-32_screenshot.png]]
+
+*** Assignation et lecture des cases d’un tableau
+Chaque case d’un tableau est une variable et peut donc être utilisée comme tel.
+
+#+DOWNLOADED: screenshot @ 2020-05-11 11:08:06
+[[file:images/2020-05-11_11-08-06_screenshot.png]]
+
+Les indices de cases peuvent être calculés.
+
+#+DOWNLOADED: screenshot @ 2020-05-11 11:08:25
+[[file:images/2020-05-11_11-08-25_screenshot.png]]
+
+Lors de la lecture ou de l’assignation d’une case si l’indice est hors des limites du tableau le
+programme est en erreur.
+
+*** Problématique résolue
+
+
+#+DOWNLOADED: screenshot @ 2020-05-11 11:09:01
+[[file:images/2020-05-11_11-09-01_screenshot.png]]
+
+* SOUS-PROGRAMMES: PROCÉDURES ET FONCTIONS
+** Définition
+Un sous-programme est une séquence d’instructions qui peut être appelée par un
+programme ou un sous-programme.\\
+
+ #+ATTR_REVEAL: :frag t
+Il est intéressant d’isoler une séquence d’instructions dans un sous-programme:
+#+ATTR_REVEAL: :frag (appear)
++ Lorsqu’une séquence d’instructions est répétée à plusieurs endroits d’un programme.
++ Lorsqu’une séquence d’instructions est réutilisable dans d’autres programmes.
+
+** Structure d’un sous-programme
+La définition d’un sous-programme commence par sa *signature* suivie de son *corps* et se termine
+par un marque de fin de sous-programme.\\
+#+ATTR_REVEAL: :frag t
+La signature est composée du *type* (procédure / fonction),  du *nom*, suivi de la définition des
+*paramètres*\\
+#+ATTR_REVEAL: :frag t
+Les *paramètres* sont des variables initialisées par le programme appelant.\\
+Leurs déclaration définissent leurs *noms*, le *type de donnée* et le *type de passage* de paramètre.\\
+ #+ATTR_REVEAL: :frag t
+Le *corps* d’un sous-programme peut contenir tous les types d’instructions.
+
+** Exemple
+
+
+#+DOWNLOADED: screenshot @ 2020-05-11 11:42:08
+[[file:images/2020-05-11_11-42-08_screenshot.png]]
+
+*** Appel d'un sous-programme
+
+
+#+DOWNLOADED: screenshot @ 2020-05-11 11:42:54
+[[file:images/2020-05-11_11-42-54_screenshot.png]]
+
+*** Ordre d'exécution du code
+#+ATTR_HTML: :width 400px :style float:left; font-size:1.6rem
+#+ATTR_REVEAL: :frag (appear)
+1. le programme tri s’exécute jusqu’au premier appel de inversion
+2. val1 et val2 sont initialisées avec les valeurs de A et B
+3. le sous-programme inversion s’exécute
+4. A et B reçoivent les valeurs de val1 et val2
+5. le programme tri s’exécute jusqu’au deuxième appel de inversion
+6. val1 et val2 sont initialisées avec les valeurs de B et C
+7. le sous-programme inversion s’exécute
+8. B et C reçoivent les valeurs de val1 et val2
+9. le programme tri s’exécute jusqu’au troisième appel de inversion
+10. val1 et val2 sont initialisées avec les valeurs de A et B
+11. le sous-programme inversion s’exécute
+12. A et B reçoivent les valeurs de val1 et val2
+13. Le programme tri se termine
+
+#+DOWNLOADED: screenshot @ 2020-05-11 11:43:35
+#+ATTR_HTML: :width 400px :style float:right
+[[file:images/2020-05-11_11-43-35_screenshot.png]]
+
+*** Passage des paramètres
+ #+ATTR_REVEAL: :frag (appear)
++ In :: les variables sont initialisées par l’appel du sous-programme.
+  + Avant l’exécution du sous-programme chaque paramètre réel est copié dans son paramètre formel.
++ Out :: la valeur des paramètres est retournée au programme appelant.
+  + Après l’exécution du sous-programme chaque paramètre formel est copié dans son paramètre réel.
+#+REVEAL: split
+
+Il est possible de combiner les actions:
+ #+ATTR_REVEAL: :frag (appear)
++ In (passage par valeur)
++ Out (passage par résultat)
++ In/Out (passage par variable ou par référence)
+
+#+ATTR_REVEAL: :frag t
+/Remarques :/
+ #+ATTR_REVEAL: :frag (appear)
++ /si le paramètre est déclaré en « in » le paramètre réel peut être un littéral ou une expression./
++ /si le paramètre est déclaré en « out » ou « in/out » le paramètre réel doit être une variable./
+
+*** Portée et durée vie des variables
+ #+ATTR_REVEAL: :frag (appear)
++ La portée d’une variable définit quel code à accès à la variable.
++ La durée de vie d’une variable définit quand la variable est créée en mémoire et quand elle est détruite en mémoire.
++ Une variable peut être « vivante » sans être accessible.
++ Les variables locales et les paramètres d’un sous-programme:
+  #+ATTR_REVEAL: :frag (appear)
+  + Ont une durée de vie du début de l’appel à la fin de l’appel du sous-programme.
+  + Ne sont accessibles que par le code du sous-programme.
+
+*** Fonction et procédure
+ #+ATTR_REVEAL: :frag (appear)
++ Les fonctions sont des sous programmes qui retournent une valeur.
++ Il faut préciser le type de valeur retournée à la fin de la signature.
+  + fonction aire(in long :N, in larg :N) :N
++ La dernière instruction du code est « RETOURNE » suivie de la valeur à retourner au programme appelant.
+  + RETOURNE résultat
++ L’appel d’une fonction est remplacé par sa valeur de retour dans l’expression du programme appelant.
+
+*** Exemple
+
+#+DOWNLOADED: screenshot @ 2020-05-11 12:05:07
+[[file:images/2020-05-11_12-05-07_screenshot.png]]
+
+
