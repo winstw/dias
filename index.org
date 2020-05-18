@@ -1107,18 +1107,21 @@ Un Texte est une suite de caractères.
 
 #+DOWNLOADED: screenshot @ 2020-05-11 10:59:13
 [[file:images/2020-05-11_10-59-13_screenshot.png]]
-
-1.Les entiers doivent être parcourus deux fois :
-a. Pour calculer la moyenne.
-b. Pour comparer chaque entier à cette moyenne.
-
-2.Il faut enregistrer chaque entier
-a. Il faut 20 variables.
-b. Il n’est pas possible de faire une boucle qui répète la même opération sur des variables différentes.
+#+ATTR_REVEAL: :frag t
+*Les entiers doivent être parcourus deux fois*
+#+ATTR_REVEAL: :frag (appear)
+ + Pour calculer la moyenne.
+ + Pour comparer chaque entier à cette moyenne.
+#+ATTR_REVEAL: :frag t
+*Il faut enregistrer chaque entier*
+#+ATTR_REVEAL: :frag (appear)
+  + Il faut 20 variables.
+  + Il n’est pas possible de faire une boucle qui répète la même opération sur des variables différentes.
 
 ** Définition
 
 Un tableau est un ensemble de variables
+#+ATTR_REVEAL: :frag (appear)
 + de même type,
 + désignées par un même nom,
 + et distinguées les unes des autres par leur numéro (appelé aussi indice).
@@ -1152,7 +1155,7 @@ Les tableaux sont déclarés avec les autres variables.
 [[file:images/2020-05-11_11-07-32_screenshot.png]]
 
 *** Assignation et lecture des cases d’un tableau
-Chaque case d’un tableau est une variable et peut donc être utilisée comme tel.
+Chaque case d’un tableau est une variable et peut donc être utilisée comme telle.
 
 #+DOWNLOADED: screenshot @ 2020-05-11 11:08:06
 [[file:images/2020-05-11_11-08-06_screenshot.png]]
@@ -1162,11 +1165,9 @@ Les indices de cases peuvent être calculés.
 #+DOWNLOADED: screenshot @ 2020-05-11 11:08:25
 [[file:images/2020-05-11_11-08-25_screenshot.png]]
 
-Lors de la lecture ou de l’assignation d’une case si l’indice est hors des limites du tableau le
-programme est en erreur.
+Lors de la lecture ou de l’assignation d’une case, si l’indice est hors des limites du tableau le programme est en erreur.
 
 *** Problématique résolue
-
 
 #+DOWNLOADED: screenshot @ 2020-05-11 11:09:01
 [[file:images/2020-05-11_11-09-01_screenshot.png]]
