@@ -1171,7 +1171,9 @@ Lors de la lecture ou de l’assignation d’une case, si l’indice est hors de
 
 #+DOWNLOADED: screenshot @ 2020-05-11 11:09:01
 [[file:images/2020-05-11_11-09-01_screenshot.png]]
-
+*** TABLEAUX À DEUX DIMENSIONS
++ Declaration :: ~VAR identifiant: Type[Constante, Constante]~
++ Assignation et lecture d'une case :: ~tableau[2, 2] <- tableau[2, 2 +1]~
 * SOUS-PROGRAMMES: PROCÉDURES ET FONCTIONS
 ** Définition
 Un sous-programme est une séquence d’instructions qui peut être appelée par un
@@ -1273,3 +1275,100 @@ Il est possible de combiner les actions:
 [[file:images/2020-05-11_12-05-07_screenshot.png]]
 
 
+* STRUCTURES DE DONNÉES: STRUCTURES
+** Définition
+Une *structure* est une définition pour un type de données construit à partir de types primitifs ou de types composés.
+
+** Syntaxe
+Syntaxe de définition de structure :
+
+#+DOWNLOADED: screenshot @ 2020-05-25 12:00:30
+[[file:images/2020-05-25_12-00-30_screenshot.png]]
+
+Syntaxe de définition de champ:
+#+DOWNLOADED: screenshot @ 2020-05-25 12:00:41
+[[file:images/2020-05-25_12-00-41_screenshot.png]]
+
+
+#+ATTR_REVEAL: :frag (appear)
++ Les structures se déclarent en dehors du corps du programme.
++ Une fois déclarée, elles peuvent être utilisées dans tous les programmes et sous-programmes.
+
+*** Exemple de déclarations
+
+#+DOWNLOADED: screenshot @ 2020-05-25 12:03:32
+[[file:images/2020-05-25_12-03-32_screenshot.png]]
+
+
+#+DOWNLOADED: screenshot @ 2020-05-25 12:03:19
+[[file:images/2020-05-25_12-03-19_screenshot.png]]
+
+
+*** Déclaration de variables d’un type composé
+
+#+DOWNLOADED: screenshot @ 2020-05-25 12:04:27
+[[file:images/2020-05-25_12-04-27_screenshot.png]]
+
+#+ATTR_REVEAL: :frag (appear)
+/La déclaration peut se situer à tout endroit où l’on peut déclarer une variable :/
+#+ATTR_REVEAL: :frag (appear)
++ /Comme variable du programme principal./
++ /Comme paramètre d’un sous-programme./
++ /Comme variable locale d’un sous-programme./
+
+*** Assignation et lecture d’un champ d’une variable
+
+*** Exemples d’assignation:
+
+#+DOWNLOADED: screenshot @ 2020-05-25 12:07:34
+[[file:images/2020-05-25_12-07-34_screenshot.png]]
+
+Assignation de la valeur ~"Dupont"~ au champ ~nom~ (de type ~Texte~) de la variable ~client~ (de type ~Personne~)
+
+#+DOWNLOADED: screenshot @ 2020-05-25 12:09:09
+[[file:images/2020-05-25_12-09-09_screenshot.png]]
+
+Assignation de la valeur ~1993~ au champ ~an~ (de type ~numérique~) du champ ~naissance~ (de type
+~Date~) de la variable ~client~ (de type ~Personne~)
+
+*** Exemple de lecture
+
+#+DOWNLOADED: screenshot @ 2020-05-25 12:10:59
+[[file:images/2020-05-25_12-10-59_screenshot.png]]
+
+
+** La pile et le tas
+
+#+DOWNLOADED: screenshot @ 2020-05-25 12:11:44
+[[file:images/2020-05-25_12-11-44_screenshot.png]]
+*** Deux implémentations des Structures
+**** Structures implémentées dans la pile
+ #+DOWNLOADED: screenshot @ 2020-05-25 12:17:21
+#+ATTR_HTML: :width 700px
+ [[file:images/2020-05-25_12-17-21_screenshot.png]]
+
+#+ATTR_HTML: :style font-size: 2rem
++  A la déclaration d’une variable il y a réservation d’autant d’emplacement que nécessaire pour chacun des champs.\\
++  La durée de vie des champs est la même que pour la variable déclarée.
+
+**** Structures implémentées dans le tas
+
+ #+DOWNLOADED: screenshot @ 2020-05-25 12:19:06
+#+ATTR_HTML: :width 700px
+ [[file:images/2020-05-25_12-19-06_screenshot.png]]
+
+#+ATTR_HTML: :style font-size: 1.8rem
+ + La déclaration d’une variable ne réserve qu’une place pour une référence dans la pile.
+ + L’instruction CRÉER permet de réserver une place pour chaque champ d’une instance de structure dans le tas.
+ + L’instruction CRÉER retourne la référence de l’endroit où a été créé l’instance.
+ + La référence doit être stockée dans une variable du type de la structure pour une utilisation future.
+
+**** Syntaxe de la création d’une instance:
+
+ #+DOWNLOADED: screenshot @ 2020-05-25 12:18:48
+ [[file:images/2020-05-25_12-18-48_screenshot.png]]
+
+*** Comment les instructions ci-dessous transforment-elles les valeurs stockées en mémoire ?
+
+#+DOWNLOADED: screenshot @ 2020-05-25 12:29:10
+[[file:images/2020-05-25_12-29-10_screenshot.png]]
